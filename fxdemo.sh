@@ -1,8 +1,6 @@
 #@BASH@
 ############
 
-VERSION="fxdemo 4.0 2021-05-13 greywolf@starwolf.com";
-
 MAP=fxdemo-1
 
 colors=(BLACK RED GREEN BROWN BLUE PURPLE TURQ GREY \

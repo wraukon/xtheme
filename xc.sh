@@ -43,7 +43,7 @@ OPTS="lrvR:f:";
 # change these if we need better resolution than this.
 #lMIN=0;
 #lMAX=5;
-VERSION="xc 4.0 2021-05-13 greywolf@starwolf.com";
+VERSION="xc version 3.2 2020-06-12";
 
 # lower and upper midrange
 #(( lMIDL = (lMAX + lMIN) / 2 ))

@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 4.0 2021-05-13 greywolf@starwolf.com";
+VERSION="xtheme version 4.0.18 2020-11-23-2123";
 
 THEMES="@LIBDIR@/xthemes";
 

@@ -12,7 +12,7 @@ hidden overstrike"
 attrib21="dbl-uline"
 LABEL0="NORMAL"
 LABEL1="HIGHLIGHT"
-VERSION="xtc 4.0 2021-05-13 greywolf@starwolf.com"
+VERSION="xtc version 1.3 2015-07-14";
 
 nl=0
 

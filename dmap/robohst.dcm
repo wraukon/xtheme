@@ -1,5 +1,4 @@
-#%% robohst.dcm 4.0 2021-05-13 greywolf@starwolf.com %%
-#%% hiscore table-ish dynamic palette %%
+# hiscore table-ish
 black=rainbow-1
 red=roborhs
 green=robobhs

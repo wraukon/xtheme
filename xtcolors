@@ -1,16 +1,6 @@
-# xtcolors 4.0 2021-05-13 greywolf@starwolf.com
-############################################################################
-# XTerm Colors -- theme/colour schemes, used by "xc".
-#
-# This file defines colours for the text, screen, pointer, and cursor.
-# The pointer background is set to the same colour as the screen, just to
-# keep it simple.  This may change someday.
-#
-# This was the original xtheme before I discovered how to remap the palette.
-############################################################################
-# scheme	text	screen/ pointer	cursor	category, for random
-# name		colour	ptrbg	colour	colour	selection if desired
-#
+# Revision 3.1.20 [rev 13, compatible with xc 3.1 and later]
+# 2021-05-10-2350
+# scheme	fg	bg+ptrbg ptr 	cursor	category
 default		white	black	#4080a0	#00ff00	mono,darkbg,lightfg
 greys		white	black	#c0c0c0	#a0a0a0	mono,darkbg,lightfg
 revgrey		black	#a0a0a0	white	#505050	mono,sun,darkbg,lightfg
