@@ -6,9 +6,11 @@ quit() { echo ; exit 1; }
 PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="installer 4.0 2021-05-13 greywolf@starwolf.com";
+VERSION="installer 4.0 2021-05-13 greywolf@starwolf.com";
 . ./VERSION;
 DFL_DIR="/usr/local";
+
+echo "xtheme ${VERSION}";
 
 echo "Checking out a few things..."
 BASH=$(type bash 2>/dev/null | awk '{print $NF}');
@@ -105,10 +107,11 @@ if [ $# -gt 0 ]; then {
 sed -e "s|@where|${where}|g" \
     -e "s|@verb|${verb}|g" \
     -e "s|@direction|${direction}|g" \
-    -e "s|@VER|${VER}|g" \
+    -e "s|@VERSION|${VERSION}|g" \
+    -e "s|@PKGVER|${PKGVER}|g" \
     -e "s|@default|${DFL_DIR}|g" <<- '-EOT-'
 
-### @VER ###
+[@PKGVER]
 
 Preparing to @verb xtheme...
 
@@ -226,3 +229,4 @@ if [ ${xv=0} -gt 0 ]; then {
 chmod -R a+rX ${lib}/;
 
 printf "You can find updates for this program at\n\n%s\n" "${URL}";
+
