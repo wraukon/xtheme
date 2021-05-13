@@ -1,0 +1,21 @@
+# black
+# red
+# green
+# brown
+# blue
+purple=by2
+turq=lander
+# grey
+# coal
+orange=ry
+lime=laser
+# gold
+sky=by2
+magenta=mutant
+cyan=by
+# white
+# [white only shows up on the map
+# for all other "white" use "bold"]
+bold=roboflash
+default=laser
+cursor=terrain

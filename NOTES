@@ -1,0 +1,20 @@
+Try to divine what we are from env settings, to handle multiple terminal types
+check TERM_PROGRAM
+	iterm2*		Apple iTerm2
+	Apple_Terminal	MacTerm
+
+xc: Use an array to map key(fg bg curfg (curbg) ptrfg ptrbg)
+	[ptr* are no-op for iterm2, curbg is noop for xterm-alikes, and
+	 ptrbg will always be set to bg]
+    iTerm2: uses OSC 1337 ; SetColors=[key]=[value] \a
+
+xp: Use an array to map key(
+	black red green yellow 
+	blue magenta cyan white
+	br_black br_red br_green br_yellow
+	br_blue br_magenta br_cyan br_white)
+    iTerm2: uses OSC 1337 ; SetColors=[key]=[value] \a
+
+xtc: as xp... also 
+
+xtheme: just add the -i flag to xc and xp

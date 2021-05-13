@@ -1,0 +1,21 @@
+# black=unused
+red=quickfade
+brown=grunt
+# green=grunt
+# blue=unused
+# violet=unused
+turquoise=terrain
+grey=scannerx
+coal=terrain
+orange=ry
+lime=robobhs
+yellow=roborhs
+sky=roboflash
+magenta=rpbp
+cyan=slowpastel
+white=bgr
+# [white only shows up on the map
+# for all other "white" use "bold"]
+bold=mutant
+default=laser
+cursor=evil-green-glow

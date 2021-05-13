@@ -1,0 +1,124 @@
+# Revision 3.0.3 [rev , compatible with xp 3.0] 2021-05-10-2350
+# color remap map.  Should be reparsed using OSC 4 $cx $spec, where
+# cx = color index offset [0-15], and spec = rgb:rrrr/gggg/bbbb, #rrggbb, or
+# a color name.
+# indexes 16-20 are bold(1) underline(2) blink(3) reverse(4) italic(5)
+#			1m	4m	  5m	     7m	       3m 
+# [indexes 16-20 do not work with urxvt]
+#
+#mapname	colors (whitespace separated)
+#
+# STANDARD (default) PALETTE
+oldstd	#000000	#cd0000	#00cd00	#cdcd00	#0000ee	#cd00cd	#00cdcd	#e5e5e5
+	#7f7f7f	#ff0000	#00ff00	#ffff00	#5c5cff	#ff00ff	#00ffff	#ffffff
+	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
+std	#000000	#cc0000	#00cc00	#cc6600	#0000cc	#8800cc	#00cccc	#cccccc
+	#888888	#ff0000	#00ff00	#ffff00	#0000ff	#ff00ff	#00ffff	#ffffff
+	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
+default	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
+	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
+	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
+# standard extras template - cut 'n' paste and delete the comment
+#	#ffffff	#008800	#66ddff	#444455	#99ffaa
+# OTHERS
+# dark-on-light
+dark	#000000	#660000	#006600	#664400	#000055	#440055	#004455	#9999aa
+	#444455	#994400	#449900	#996600	#0000aa	#bb00aa	#0099aa	#ffffff
+	#ffff00	#0000ff	#000000	#ffffff	#ff00ff
+# nethack
+nethack	#222222	#bb0000	#009900	#994400	#2200aa	#440099	#0099aa	#9999aa
+	#444455	#ff6600	#99ff00	#ffbb00	#2266ff	#ff00aa	#66bbff	#ffffff
+	#ffffff	#ff0000	#ff00ff	#ff00aa	#00ff00
+nethack-dark	#000000	#880000	#006600	#884400	#003388	#883388	#006688	#888888
+	#444444	#cc5500	#55aa00	#aa9933	#0000aa	#aa0066	#0088cc	#ffffff
+	#ffffff	#ffaa00	#aa00ff	#00ccff	#aaff00
+	#ffffff	#008800	#66ddff	#444455	#99ffaa
+# for "paper" background
+paper	#442200	#992222	#226622	#664400	#222266	#880088	#448888	#887766
+	#000000	#bb0000	#009900	#aa7700	#0000ff	#440077	#004444	#ffffff
+	#ffff00	#0000ff	#000000	#ffffff	#ff00ff
+# for "wpaper" background
+# the first set is coloured pencil, the second set is pens :)
+wpaper	#404040	#a06060	#60a070	#604020	#404080	#7030a0	#446688	#808090
+	#000000	#bb5000	#559900	#995500	#0000cc	#440088	#008888	#ffffff
+	#ffff00	#0000ff	#000000	#ffffff	#ff00ff
+
+# for "asr33" background
+asr33	#221c00	#aa2200	#3a7700	#684200	#333377	#8c0066	#468466	#8c8466
+	#000000	#880000	#004400	#aa7700	#111166	#440055	#004422	#ffffdd
+	#ffdd00	#0000dd	#000000	#ffdddd	#ff00dd
+asr33-ns	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08
+	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08	#201c08
+	
+# subtle, dark tones
+subdark	#000000	#552222	#225522	#555522	#222255	#552255	#225555	#555555
+	#222222	#994444	#449944	#999944	#444499	#994499	#449999	#dddddd
+	#ffffff	#008800	#66ddff	#ccdddd	#99ffaa
+# subtle, mid-tones
+submid	#222222	#884444	#446644	#886644	#444466	#664466	#446666	#666666
+	#444444	#cc8888	#88cc88	#ccaa44	#8888cc	#cc4488	#88cccc	#ffffff
+	#ffffff	#008800	#66ddff	#4444aa	#99ffaa
+# subtle, light tones
+sublight	#222222	#ccaaaa	#aaccaa	#ccaa88	#8888cc	#ccaacc	#aacccc	#cccccc
+	#888888	#ffbb99	#bbff99	#ffdd99	#aaaaff	#cc88ff	#aaffff	#ffffff
+	#ffffff	#008800	#66ddff	#4444aa	#99ffaa
+# saturated
+sat	#000000	#ff0000	#00ff00	#cc4400	#0000ff	#cc00ff	#00ccff	#cccccc
+	#444444	#ff6600	#88ff00	#ffcc00	#2244ff	#ff00cc	#44ccff	#ffffff
+	#ffffff	#008800	#66ddff	#00ff00	#99ffaa
+# fluorescent
+neon	#110011	#ff1122	#22ff33	#cc6622	#1122ff	#8844cc	#00ccff	#8888cc
+	#331155	#ff6600	#ccff00	#ff9900	#6677ff	#ff44cc	#88ccff	#aaaaff
+	#ffffff	#0088ff	#ffaa00	#0000ff	#cc88ff
+# pure black-and-white:  everything is black.
+# scaled monochrome
+# avail: 00 30 3f 4e 5c 6b 7a 89 98 a6 b5 c4 d3 e1 f0 ff
+# ordered: 00 6b b5 89 3f 4e 5c c4 30 d3 98 e1 7a a6 f0 ff
+# 	ff 30 5c 3f e1
+white	#000000	#6b6b6b	#b5b5b5	#898989	#3f3f3f	#4e4e4e	#5c5c5c	#c4c4c4
+	#303030	#989898	#d3d3d3	#e1e1e1	#7a7a7a	#a6a6a6	#f0f0f0	#ffffff
+	#ffffff	#999999	#444444	#444444	#666666
+green	#001100	#006b00	#00b500	#008900	#003f00	#004e00	#005c00	#00c400
+	#003000	#009800	#00d300	#00e100	#007a00	#00a600	#00f000	#00ff00
+	#00ff00	#009900	#004400	#004400	#006600
+grey	#000000	#6b6b6b	#b5b5b5	#898989	#3f3f3f	#4e4e4e	#5c5c5c	#c4c4c4
+	#303030	#989898	#d3d3d3	#e1e1e1	#7a7a7a	#a6a6a6	#f0f0f0	#ffffff
+	#ffffff	#9999aa	#444455	#444455	#666655
+grey-rv	#ffffff #f0f0f0 #a6a6a6 #7a7a7a #e1e1e1 #989898 #d3d3d3 #303030
+	#c4c4c4 #5c5c5c #4e4e4e #3f3f3f #898989 #b5b5b5 #6b6b6b #000000
+	#000000	#444455	#9999aa	#9999aa	#666655
+# oldschool white
+whitecrt	#000000	#5b5b6b	#a3a3bf	#757589	#36363f	#42424e	#4e4e5c	#a8a8c4
+	#292930	#828298	#b4b4d3	#c0c0e1	#68687a	#8e8ea6	#cdcdf0	#dadaff
+	#ffffff	#292930	#4e4e5c	#36363f	#c0c0e1
+whitecrt-od	#101014	#5b5b6b	#a3a3bf	#757589	#36363f	#42424e	#4e4e5c	#a8a8c4
+	#292930	#828298	#b4b4d3	#c0c0e1	#68687a	#8e8ea6	#cdcdf0	#dadaff
+	#ffffff	#292930	#4e4e5c	#36363f	#c0c0e1
+# black and white TV
+bwtv	#000000	#47476b	#7878b5	#5b5b89	#2a2a3f	#34344e	#3d3d5c	#8282c4
+	#202030	#8c8cd3	#656598	#9696e1	#51517a	#6e6ea6	#a0a0f0	#aaaaff
+	#ddddff	#202030	#3d3d5c	#47476b	#9696e1
+bwtv2	#000000	#4e556b	#8490b5	#646d89	#2e323f	#393e4e	#43495c	#8f9cc4
+	#232630	#6f7998	#9aa8d3	#a5b4e1	#59617a	#7984a6	#b0c0f0	#bbccff
+	#ddddff	#202030	#3d3d5c	#47476b	#9696e1
+bwtv-od	#101018	#47476b	#7878b5	#5b5b89	#2a2a3f	#34344e	#3d3d5c	#8282c4
+	#202030	#8c8cd3	#656598	#9696e1	#51517a	#6e6ea6	#a0a0f0	#aaaaff
+	#ddddff	#202030	#3d3d5c	#47476b	#9696e1
+## oldschool green
+greencrt	#102816	#286b35	#47bf5f	#338944	#173f1f	#1d4e27	#225c2e	#49c462
+	#123018	#39984c	#4fd369	#54e170	#2d7a3d	#3ea653	#5af078	#5fff7f
+	#99ffaf #39984c #225c2e #2d7a3d #4fd369
+# oldschool amber
+ambercrt	#221000	#6b4200	#bf7700	#895500	#3f2700	#4e3000	#5c3900	#c47a00
+	#301e00	#985f00	#d38300	#e18c00	#7a4c00	#a66700	#f09600	#ff9f00
+	#ffcc00	#985f00	#5c3900	#4e3000 #bf7700
+# solarized, dark
+dsol	#002b36	#dc322f	#859900	#b58900	#268bd2	#d33682	#2aa198	#eee8d5
+	#0a3f4c	#cb4b16	#586e75	#657b83	#839496	#6c71c4	#93a1a1	#fdf6e3
+	#ffffff	#008800	#66ddff	#446655	#99ffaa
+# solarized, light
+lsol	#fdf6e3	#dc322f	#859900	#b58900	#268bd2	#d33682	#2aa198	#eee8d5
+	#eee8d5	#cb4b16	#93a1a1	#839496	#657b83	#6c71c4	#586e75	#002b36
+	#ffffff	#008800	#66ddff	#ccaabb	#99ffaa
+# pure green monochrome - see 'green' above
+

@@ -1,0 +1,67 @@
+# Revision: 4.0.2 2021-05-10-2318
+#
+# theme		terminal	palette		tags
+# theme		@themealias
+# blackbg
+overdrive-g	tvi-overdrive	greencrt	black green tinted mono
+overdrive-w	adm5-overdrive	whitecrt-od	black white mono
+overdrive-bw	bwtv-overdrive	bwtv-od		black white mono
+overdrive-a	amber-overdrive	ambercrt	black amber tinted mono
+neon		wneon		neon		black neon dayglo
+blacklight	@neon
+pet		pet		greencrt	black green tinted mono
+tvi		tvi		greencrt	black green tinted mono
+amber		ambermono	ambercrt	black amber tinted mono
+green		green		green		black green mono
+ibm		@green
+std		std		std		black color standard
+default		std		default		black color standard
+nethack		bwtv		nethack		black color app-specific
+adm5		adm5		whitecrt	black white mono
+adm5b		adm5b		adm5-ns		black white mono
+bwtv		bwtv		bwtv		black white mono
+bwtv2		bwtv2		bwtv2		black white mono
+oldstd		std		oldstd		black color standard
+greyscale	greys		grey		black grey greyscale wonb
+grey		@greyscale
+gs		@greyscale
+white		@greyscale
+xenon		xenon		subdark		black amber color
+future		future		default		black blue color
+future2		future1		default		black teal color
+sun-rv		rvconsole	default		white mono wonb color
+sunbw-rv	adm5b		whitecrt	white mono wonb use.with.-m
+sunbw2-rv	bwtvb		bwtv		white mono wonb use.with.-m
+# darkbg
+dsol		dsol		dsol		dark solar color
+burgundy	burgundy	nethack		dark red purple color
+cobalt		twilight	dsol		dark blue purple color
+forest		forest		nethack		dark green purple color
+storm		grey4		sublight	dark grey color
+lightning	grey4l		sublight	dark grey color
+# medbg
+ssgi		sgi		dsol		med solar blue color
+sgi		sgi		std		med blue color
+midgard		grey8		subdark		med grey color
+autumn		icet		subdark		med grey color
+# lightbg
+power		power		nethack-dark	light tan color
+dragon		dragon		subdark		light tan color
+paper		paper		paper		light paper old color
+wpaper		wpaper		wpaper		light paper new color
+asr33		asr33		asr33		light paper yellow color
+tty		@asr33
+sparc		sparc		nethack-dark	light tan color
+blacksand	blacksand	nethack-dark	light tan color
+lsol		lsol		lsol		light solar color
+nethack-dark	paper		nethack-dark	light tan color app-specific
+revgrey		revgrey		grey-rv		light grey mono
+gs-rev		@revgrey
+grey-rv		@revgrey
+rain		storm		nethack-dark	light
+# bright
+sun		console		std		white mono bonw color
+sunbw		bwcon		whitecrt	white mono bonw use.with.-m
+sunbw2		bwtvr		bwtv		white mono bonw use.with.-m
+#
+

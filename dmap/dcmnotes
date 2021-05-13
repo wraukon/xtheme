@@ -1,0 +1,38 @@
+		defender:	stargate:	robotron:
+
+palette entry:
+00		black		black		black
+01		red		red		red
+02		green		green		green
+03		brown
+04		blue				blue
+05		purple		purple
+06
+07		slate		slate		slate
+10		
+11				orange		orange
+12
+13		yellow		yellow		yellow
+14
+15		magenta		magenta		magenta
+16
+17		white		white		white
+
+			0       1
+			0123456701234567
+defender static:	KRGNBV+S+++Y+M+W
+stargate static:	KRG++V+S+O+Y+M+W
+robotron static:	KRG+B++S+O+Y+M+W
+
+DYNAMICS
+		DEFENDER	STARGATE	ROBOTRON
+LASER		06		06		06
+MUTANT/K	14		14		--
+MUTANT/W	16		16		16
+R/Y		10		10		10
+B/Y 1		11		04		--
+B/Y 2		12		12		--
+BGR		--		--		12
+RPBP		--		--		05
+WRWP		--		03		--
+GRUNT		--		--		03

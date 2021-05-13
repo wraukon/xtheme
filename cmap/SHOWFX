@@ -1,0 +1,17 @@
+#! /bin/sh -
+
+lev=1
+for fg in 0000ff 00ff00 ff0000 ff6600 ffcc00 ff00ff aa6600 000000 ccccaa ffffff
+do 
+	printf "player level %2d\r" $lev;
+	cmap -n 80 $fg ffffff 000000
+	(( ++lev ));
+done
+
+bonus=1
+for fx in ry by laser quickfade rpbp ; do
+	printf "weapon bonus +%d\r" $bonus;
+	cmap -n 10 $fx ffffff 000000
+	(( ++bonus ));
+done
+echo

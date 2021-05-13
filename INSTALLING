@@ -1,0 +1,16 @@
+To install the xtheme program suite, simply run
+
+sh INSTALL.sh [ options ]
+
+options:
+	-a	do not prompt for questions
+	-d dir	install to/remove from dir
+	-r	remove
+	-u	update
+	-y	synonym for -a
+
+You will be prompted for where to install it.
+You may be prompted for locations of missing programs.
+Failure to provide those locations will result in termination.
+
+(...of the program! What were YOU thinking?)

@@ -1,0 +1,616 @@
+# Revision 3.1.20 [rev 13, compatible with xc 3.1 and later]
+# 2021-05-10-2350
+# scheme	fg	bg+ptrbg ptr 	cursor	category
+default		white	black	#4080a0	#00ff00	mono,darkbg,lightfg
+greys		white	black	#c0c0c0	#a0a0a0	mono,darkbg,lightfg
+revgrey		black	#a0a0a0	white	#505050	mono,sun,darkbg,lightfg
+sgi		white	#003050	#ffff00	#00ff00	colordark,lightfg,blue,classic
+bsd		#ffd0d0	black	#d0d0ff	#00ff00	lightfg,darkbg
+cisco		white	#204860	#77ff00	white	colordark,lightfg,blue
+# Tan Backgrounds     
+power		#800000	#d0c4bc	#808080	#000080	tan,red,darkfg,lightbg
+dragon		#007000	#d0c4bc	white	black	tan,green,darkfg,lightbg
+sparc		#000080	#d0c4bc	#000080	#80ff00	tan,blue,darkfg,lightbg
+blacksand	black	#d0c4bc	white	#00ccff	tan,black,darkfg,lightbg
+# Paper-like: old-ish paper
+paper		#403000	#d0c0b0	#403000	#403000	tan,brown,darkfg,lightbg
+# Slightly yellower, like the old ASR33 teletype paper
+asr33		#201c08	#c0b080	#201c08	#201c08	lightbg,darkfg
+# Slightly bluer, like old binder paper
+wpaper		#404040	#c0c0d0	black	#a06060	lightbg,darkfg
+#  Grey Backgrounds     
+redrain		#800000	#c0c0c0	black	white	grey,red,darkfg,lightbg
+humboldt	#006030	#c0c0c0	black	white	grey,green,darkfg,lightbg
+marina		#000080	#c0c0c0	black	white	grey,blue,darkfg,lightbg
+marina2		#000080	#c0c0c0	white	#600000	grey,blue,darkfg,lightbg
+lab		#000080	#c0c0c0	black	#80ff00	grey,blue,darkfg,lightbg
+storm		black	#c0c0c0	black	black	grey,black,darkfg,lightbg
+icet		#8b4513	#c0c0c0	#008050	#ffff00	grey,brown,darkfg,lightbg
+grey8		black	#808080	black	black	grey,black,darkfg
+grey4		black	#404040	black	black	grey,black,darkfg
+grey4l		#dddddd	#404040	black	#dddddd	grey,black,darkfg
+#  Color backgrounds, white   text   
+burgundy	white	#500028	#ff0000	white	color,red,lightfg,darkbg
+forest		white	#004028	#00ff00	white	color,green,lightfg,darkbg
+twilight	white	#000048	#0000ff	white	color,blue,lightfg,darkbg
+#  Themes          
+future		#8080ff	black	#ff80c0	#c080ff	color,darkbg,lightfg
+future1		#00ffc0	black	#ffc080	#c0ff80	color,darkbg,lightfg
+xenon		#ff8000	black	#00c0ff	#00c000	color,darkbg,lightfg
+dsol		#839496	#002b36	#93a1a1	#93a1a1	darkbg,lightfg,solar
+lsol		#657b8e	#fdf6e3	#586e75	#586e75	lightbg,darkfg,solar
+#  Monochromes      
+ambermono	#ffa000	black	#ffa000	#ffa000	mono,amber,lightfg,darkbg
+amber-overdrive	#ffa000	#221000	#ffa000	#ffa000	mono,amber,lightfg,darkbg
+amber		#ffa000	black	#00ff00	white	mono,amber,lightfg,darkbg
+orange		#ff8000	black	#ff8000	white	mono,orange,amber,lightfg,darkbg
+gold		#ffc000	black	#00ff00	white	mono,yellow,amber,lightfg,darkbg
+greenmono	#00ff00	black	#00ff00	#00ff00	mono,green,lightfg,darkbg
+green		#00ff00	black	#ffc000	white	mono,green,lightfg,darkbg
+cyan		#00ffff	black	white	#00ff00	mono,cyan,lightfg,darkbg
+red		#ff0000	black	#ffff00	white	mono,red,lightfg,darkbg
+blue		#5050ff	black	#8000ff	#ff0080	mono,blue,lightfg,darkbg
+magenta		#ff00ff	black	white	#ffc0ff	mono,violet,lightfg,darkbg
+std		white	black	#c0c0c0	#a0a0a0	mono,lightfg,darkbg,white
+dim		#c0c0c0	black	#a0a0a0	#808080	mono,darkbg,lightfg,white
+rvconsole	white	black	white	white	mono,lightfg,darkbg,white
+wonb		white	black	white	white	mono,lightfg,darkbg,white
+# old-school
+pet		#60ff80	black	#60ff80	#60ff80	mono,green,lightfg,darkbg,classic
+tvi		#60ff80	black	#60ff80	#50dd55	mono,green,lightfg,darkbg,classic
+tvi-overdrive	#60ff80	#102816	#60ff80	#50dd55	mono,green,lightfg,darkbg,classic
+adm5		#c0c0e0	black	#c0c0e0	#c0c0e0	mono,white,lightfg,darkbg,classic
+adm5-overdrive	#c0c0e0	#101014	#c0c0e0	#c0c0e0	mono,white,lightfg,darkbg,classic
+adm5b		#c0c0ff	black	#c0c0ff	#c0c0ff	mono,white,lightfg,darkbg,classic
+wmono		#c0c0e0	black	#c0c0e0	#a0a0c8	mono,white,lightfg,darkbg,classic
+wneon		#8080c0 black	#8080c0 #ffa000	mono,white,lightfg,darkbg,classic,dim,neon
+bwtv		#8282c4 black	#8282c4 #8080c8	mono,white,lightfg,darkbg,classic,dim,neon
+bwtv-overdrive	#8282c4 #101018 #8282c4 #8080c8	mono,white,lightfg,darkbg,classic,dim,neon
+bwtvh		#8282c4 black	#8282c4 #0080ff	mono,white,lightfg,darkbg,classic,dim,neon
+bwtvb		#a0a0ff	black	#a0a0ff	#a0a0ff	mono,white,lightfg,darkbg,classic,neon
+bwtv2		#8f9cc4 black	#8f9cc4 #8f9cc4	mono,white,lightfg,darkbg,classic,dim,neon
+white		white	black	white white	mono,white,lightfg,darkbg,classic
+#  More monochromes, black   backgrounds
+def1		#0000aa	black	#00cc00	white	defender,blue,darkbg,lightfg
+def2		#00cc00	black	#cc9900	white	defender,green,darkbg,lightfg
+def3		#cc0000	black	#ffcc00	white	defender,red,darkbg,lightfg
+def4		#cc6600	black	#ff0000	white	defender,orange,darkbg,lightfg
+def5		#ffcc00	black	#00ff00	white	defender,yellow,darkbg,lightfg
+def6		#9900aa	black	#0000aa	white	defender,violet,darkbg,lightfg
+def7		#ff9900	black	#cc00aa	white	defender,brown,darkbg,lightfg
+def8		#9999aa	black	#666655	white	defender,grey,darkbg,lightfg
+def9		white	black	#9999aa	white	defender,white,darkbg,lightfg
+#  fluorescent      
+nn		#e09020	black	white	white	neon,brown,darkbg,lightfg
+nr		#ff3030	black	white	white	neon,red,darkbg,lightfg
+no		#ff7020	black	white	white	neon,orange,darkbg,lightfg
+ny		#ffc030	black	white	white	neon,yellow,darkbg,lightfg
+nl		#d0ff30	black	white	white	neon,yellow,green,darkbg,lightfg
+ng		#30ff30	black	white	white	neon,green,darkbg,lightfg
+nb		#4040ff	black	white	white	neon,blue,darkbg,lightfg
+nv		#c040ff	black	white	white	neon,violet,darkbg,lightfg
+np		#ff60c0	black	white	white	neon,pink,violet,red,darkbg,lightfg
+nm		#ff00d0	black	white	white	neon,magenta,pink,violet,darkbg,lightfg
+#  White Backgrounds     
+console		black	white	black	black	classic,sun,darkfg,whitebg,mono,white
+bonw		black	white	black	black	classic,sun,darkfg,whitebg,mono,white
+econ		black	#e0e0e0	black	black	classic,sun,darkfg,whitebg,mono,white
+dcon		black	#d0d0d0	black	black	classic,sun,darkfg,whitebg,mono,white
+ccon		black	#c0c0c0	black	black	classic,sun,darkfg,whitebg,mono,white
+bwcon		black	#c0c0ff	black	black	classic,sun,darkfg,whitebg,mono,white
+bwtvr		black	#a0a0ff	black	black	mono,white,lightfg,darkbg,classic,neon
+# full 8-bit palette - text
+# scheme	fg	bg+ptrbg ptr 	cursor	category
+DEF-F000	black	black	black	black	8-bit ignore
+DEF-F005	#000005	black	#000005	black	8-bit ignore
+DEF-F00A	#00000a	black	#00000a	black	8-bit ignore
+DEF-F00F	#00000f	black	#00000f	black	8-bit ignore
+DEF-F020	#000200	black	#000200	black	8-bit ignore
+DEF-F025	#000205	black	#000205	black	8-bit ignore
+DEF-F02A	#00020a	black	#00020a	black	8-bit ignore
+DEF-F02F	#00020f	black	#00020f	black	8-bit ignore
+DEF-F040	#000400	black	#000400	black	8-bit ignore
+DEF-F045	#000405	black	#000405	black	8-bit ignore
+DEF-F04A	#00040a	black	#00040a	black	8-bit ignore
+DEF-F04F	#00040f	black	#00040f	black	8-bit ignore
+DEF-F060	#000600	black	#000600	black	8-bit ignore
+DEF-F065	#000605	black	#000605	black	8-bit ignore
+DEF-F06A	#00060a	black	#00060a	black	8-bit ignore
+DEF-F06F	#00060f	black	#00060f	black	8-bit ignore
+DEF-F090	#000900	black	#000900	black	8-bit ignore
+DEF-F095	#000905	black	#000905	black	8-bit ignore
+DEF-F09A	#00090a	black	#00090a	black	8-bit ignore
+DEF-F09F	#00090f	black	#00090f	black	8-bit ignore
+DEF-F0B0	#000b00	black	#000b00	black	8-bit ignore
+DEF-F0B5	#000b05	black	#000b05	black	8-bit ignore
+DEF-F0BA	#000b0a	black	#000b0a	black	8-bit ignore
+DEF-F0BF	#000b0f	black	#000b0f	black	8-bit ignore
+DEF-F0D0	#000d00	black	#000d00	black	8-bit ignore
+DEF-F0D5	#000d05	black	#000d05	black	8-bit ignore
+DEF-F0DA	#000d0a	black	#000d0a	black	8-bit ignore
+DEF-F0DF	#000d0f	black	#000d0f	black	8-bit ignore
+DEF-F0F0	#000f00	black	#000f00	black	8-bit ignore
+DEF-F0F5	#000f05	black	#000f05	black	8-bit ignore
+DEF-F0FA	#000f0a	black	#000f0a	black	8-bit ignore
+DEF-F0FF	#000f0f	black	#000f0f	black	8-bit ignore
+DEF-F200	#020000	black	#020000	black	8-bit ignore
+DEF-F205	#020005	black	#020005	black	8-bit ignore
+DEF-F20A	#02000a	black	#02000a	black	8-bit ignore
+DEF-F20F	#02000f	black	#02000f	black	8-bit ignore
+DEF-F220	#020200	black	#020200	black	8-bit ignore
+DEF-F225	#020205	black	#020205	black	8-bit ignore
+DEF-F22A	#02020a	black	#02020a	black	8-bit ignore
+DEF-F22F	#02020f	black	#02020f	black	8-bit ignore
+DEF-F240	#020400	black	#020400	black	8-bit ignore
+DEF-F245	#020405	black	#020405	black	8-bit ignore
+DEF-F24A	#02040a	black	#02040a	black	8-bit ignore
+DEF-F24F	#02040f	black	#02040f	black	8-bit ignore
+DEF-F260	#020600	black	#020600	black	8-bit ignore
+DEF-F265	#020605	black	#020605	black	8-bit ignore
+DEF-F26A	#02060a	black	#02060a	black	8-bit ignore
+DEF-F26F	#02060f	black	#02060f	black	8-bit ignore
+DEF-F290	#020900	black	#020900	black	8-bit ignore
+DEF-F295	#020905	black	#020905	black	8-bit ignore
+DEF-F29A	#02090a	black	#02090a	black	8-bit ignore
+DEF-F29F	#02090f	black	#02090f	black	8-bit ignore
+DEF-F2B0	#020b00	black	#020b00	black	8-bit ignore
+DEF-F2B5	#020b05	black	#020b05	black	8-bit ignore
+DEF-F2BA	#020b0a	black	#020b0a	black	8-bit ignore
+DEF-F2BF	#020b0f	black	#020b0f	black	8-bit ignore
+DEF-F2D0	#020d00	black	#020d00	black	8-bit ignore
+DEF-F2D5	#020d05	black	#020d05	black	8-bit ignore
+DEF-F2DA	#020d0a	black	#020d0a	black	8-bit ignore
+DEF-F2DF	#020d0f	black	#020d0f	black	8-bit ignore
+DEF-F2F0	#020f00	black	#020f00	black	8-bit ignore
+DEF-F2F5	#020f05	black	#020f05	black	8-bit ignore
+DEF-F2FA	#020f0a	black	#020f0a	black	8-bit ignore
+DEF-F2FF	#020f0f	black	#020f0f	black	8-bit ignore
+DEF-F400	#040000	black	#040000	black	8-bit ignore
+DEF-F405	#040005	black	#040005	black	8-bit ignore
+DEF-F40A	#04000a	black	#04000a	black	8-bit ignore
+DEF-F40F	#04000f	black	#04000f	black	8-bit ignore
+DEF-F420	#040200	black	#040200	black	8-bit ignore
+DEF-F425	#040205	black	#040205	black	8-bit ignore
+DEF-F42A	#04020a	black	#04020a	black	8-bit ignore
+DEF-F42F	#04020f	black	#04020f	black	8-bit ignore
+DEF-F440	#040400	black	#040400	black	8-bit ignore
+DEF-F445	#040405	black	#040405	black	8-bit ignore
+DEF-F44A	#04040a	black	#04040a	black	8-bit ignore
+DEF-F44F	#04040f	black	#04040f	black	8-bit ignore
+DEF-F460	#040600	black	#040600	black	8-bit ignore
+DEF-F465	#040605	black	#040605	black	8-bit ignore
+DEF-F46A	#04060a	black	#04060a	black	8-bit ignore
+DEF-F46F	#04060f	black	#04060f	black	8-bit ignore
+DEF-F490	#040900	black	#040900	black	8-bit ignore
+DEF-F495	#040905	black	#040905	black	8-bit ignore
+DEF-F49A	#04090a	black	#04090a	black	8-bit ignore
+DEF-F49F	#04090f	black	#04090f	black	8-bit ignore
+DEF-F4B0	#040b00	black	#040b00	black	8-bit ignore
+DEF-F4B5	#040b05	black	#040b05	black	8-bit ignore
+DEF-F4BA	#040b0a	black	#040b0a	black	8-bit ignore
+DEF-F4BF	#040b0f	black	#040b0f	black	8-bit ignore
+DEF-F4D0	#040d00	black	#040d00	black	8-bit ignore
+DEF-F4D5	#040d05	black	#040d05	black	8-bit ignore
+DEF-F4DA	#040d0a	black	#040d0a	black	8-bit ignore
+DEF-F4DF	#040d0f	black	#040d0f	black	8-bit ignore
+DEF-F4F0	#040f00	black	#040f00	black	8-bit ignore
+DEF-F4F5	#040f05	black	#040f05	black	8-bit ignore
+DEF-F4FA	#040f0a	black	#040f0a	black	8-bit ignore
+DEF-F4FF	#040f0f	black	#040f0f	black	8-bit ignore
+DEF-F600	#060000	black	#060000	black	8-bit ignore
+DEF-F605	#060005	black	#060005	black	8-bit ignore
+DEF-F60A	#06000a	black	#06000a	black	8-bit ignore
+DEF-F60F	#06000f	black	#06000f	black	8-bit ignore
+DEF-F620	#060200	black	#060200	black	8-bit ignore
+DEF-F625	#060205	black	#060205	black	8-bit ignore
+DEF-F62A	#06020a	black	#06020a	black	8-bit ignore
+DEF-F62F	#06020f	black	#06020f	black	8-bit ignore
+DEF-F640	#060400	black	#060400	black	8-bit ignore
+DEF-F645	#060405	black	#060405	black	8-bit ignore
+DEF-F64A	#06040a	black	#06040a	black	8-bit ignore
+DEF-F64F	#06040f	black	#06040f	black	8-bit ignore
+DEF-F660	#060600	black	#060600	black	8-bit ignore
+DEF-F665	#060605	black	#060605	black	8-bit ignore
+DEF-F66A	#06060a	black	#06060a	black	8-bit ignore
+DEF-F66F	#06060f	black	#06060f	black	8-bit ignore
+DEF-F690	#060900	black	#060900	black	8-bit ignore
+DEF-F695	#060905	black	#060905	black	8-bit ignore
+DEF-F69A	#06090a	black	#06090a	black	8-bit ignore
+DEF-F69F	#06090f	black	#06090f	black	8-bit ignore
+DEF-F6B0	#060b00	black	#060b00	black	8-bit ignore
+DEF-F6B5	#060b05	black	#060b05	black	8-bit ignore
+DEF-F6BA	#060b0a	black	#060b0a	black	8-bit ignore
+DEF-F6BF	#060b0f	black	#060b0f	black	8-bit ignore
+DEF-F6D0	#060d00	black	#060d00	black	8-bit ignore
+DEF-F6D5	#060d05	black	#060d05	black	8-bit ignore
+DEF-F6DA	#060d0a	black	#060d0a	black	8-bit ignore
+DEF-F6DF	#060d0f	black	#060d0f	black	8-bit ignore
+DEF-F6F0	#060f00	black	#060f00	black	8-bit ignore
+DEF-F6F5	#060f05	black	#060f05	black	8-bit ignore
+DEF-F6FA	#060f0a	black	#060f0a	black	8-bit ignore
+DEF-F6FF	#060f0f	black	#060f0f	black	8-bit ignore
+DEF-F900	#090000	black	#090000	black	8-bit ignore
+DEF-F905	#090005	black	#090005	black	8-bit ignore
+DEF-F90A	#09000a	black	#09000a	black	8-bit ignore
+DEF-F90F	#09000f	black	#09000f	black	8-bit ignore
+DEF-F920	#090200	black	#090200	black	8-bit ignore
+DEF-F925	#090205	black	#090205	black	8-bit ignore
+DEF-F92A	#09020a	black	#09020a	black	8-bit ignore
+DEF-F92F	#09020f	black	#09020f	black	8-bit ignore
+DEF-F940	#090400	black	#090400	black	8-bit ignore
+DEF-F945	#090405	black	#090405	black	8-bit ignore
+DEF-F94A	#09040a	black	#09040a	black	8-bit ignore
+DEF-F94F	#09040f	black	#09040f	black	8-bit ignore
+DEF-F960	#090600	black	#090600	black	8-bit ignore
+DEF-F965	#090605	black	#090605	black	8-bit ignore
+DEF-F96A	#09060a	black	#09060a	black	8-bit ignore
+DEF-F96F	#09060f	black	#09060f	black	8-bit ignore
+DEF-F990	#090900	black	#090900	black	8-bit ignore
+DEF-F995	#090905	black	#090905	black	8-bit ignore
+DEF-F99A	#09090a	black	#09090a	black	8-bit ignore
+DEF-F99F	#09090f	black	#09090f	black	8-bit ignore
+DEF-F9B0	#090b00	black	#090b00	black	8-bit ignore
+DEF-F9B5	#090b05	black	#090b05	black	8-bit ignore
+DEF-F9BA	#090b0a	black	#090b0a	black	8-bit ignore
+DEF-F9BF	#090b0f	black	#090b0f	black	8-bit ignore
+DEF-F9D0	#090d00	black	#090d00	black	8-bit ignore
+DEF-F9D5	#090d05	black	#090d05	black	8-bit ignore
+DEF-F9DA	#090d0a	black	#090d0a	black	8-bit ignore
+DEF-F9DF	#090d0f	black	#090d0f	black	8-bit ignore
+DEF-F9F0	#090f00	black	#090f00	black	8-bit ignore
+DEF-F9F5	#090f05	black	#090f05	black	8-bit ignore
+DEF-F9FA	#090f0a	black	#090f0a	black	8-bit ignore
+DEF-F9FF	#090f0f	black	#090f0f	black	8-bit ignore
+DEF-FB00	#0b0000	black	#0b0000	black	8-bit ignore
+DEF-FB05	#0b0005	black	#0b0005	black	8-bit ignore
+DEF-FB0A	#0b000a	black	#0b000a	black	8-bit ignore
+DEF-FB0F	#0b000f	black	#0b000f	black	8-bit ignore
+DEF-FB20	#0b0200	black	#0b0200	black	8-bit ignore
+DEF-FB25	#0b0205	black	#0b0205	black	8-bit ignore
+DEF-FB2A	#0b020a	black	#0b020a	black	8-bit ignore
+DEF-FB2F	#0b020f	black	#0b020f	black	8-bit ignore
+DEF-FB40	#0b0400	black	#0b0400	black	8-bit ignore
+DEF-FB45	#0b0405	black	#0b0405	black	8-bit ignore
+DEF-FB4A	#0b040a	black	#0b040a	black	8-bit ignore
+DEF-FB4F	#0b040f	black	#0b040f	black	8-bit ignore
+DEF-FB60	#0b0600	black	#0b0600	black	8-bit ignore
+DEF-FB65	#0b0605	black	#0b0605	black	8-bit ignore
+DEF-FB6A	#0b060a	black	#0b060a	black	8-bit ignore
+DEF-FB6F	#0b060f	black	#0b060f	black	8-bit ignore
+DEF-FB90	#0b0900	black	#0b0900	black	8-bit ignore
+DEF-FB95	#0b0905	black	#0b0905	black	8-bit ignore
+DEF-FB9A	#0b090a	black	#0b090a	black	8-bit ignore
+DEF-FB9F	#0b090f	black	#0b090f	black	8-bit ignore
+DEF-FBB0	#0b0b00	black	#0b0b00	black	8-bit ignore
+DEF-FBB5	#0b0b05	black	#0b0b05	black	8-bit ignore
+DEF-FBBA	#0b0b0a	black	#0b0b0a	black	8-bit ignore
+DEF-FBBF	#0b0b0f	black	#0b0b0f	black	8-bit ignore
+DEF-FBD0	#0b0d00	black	#0b0d00	black	8-bit ignore
+DEF-FBD5	#0b0d05	black	#0b0d05	black	8-bit ignore
+DEF-FBDA	#0b0d0a	black	#0b0d0a	black	8-bit ignore
+DEF-FBDF	#0b0d0f	black	#0b0d0f	black	8-bit ignore
+DEF-FBF0	#0b0f00	black	#0b0f00	black	8-bit ignore
+DEF-FBF5	#0b0f05	black	#0b0f05	black	8-bit ignore
+DEF-FBFA	#0b0f0a	black	#0b0f0a	black	8-bit ignore
+DEF-FBFF	#0b0f0f	black	#0b0f0f	black	8-bit ignore
+DEF-FD00	#0d0000	black	#0d0000	black	8-bit ignore
+DEF-FD05	#0d0005	black	#0d0005	black	8-bit ignore
+DEF-FD0A	#0d000a	black	#0d000a	black	8-bit ignore
+DEF-FD0F	#0d000f	black	#0d000f	black	8-bit ignore
+DEF-FD20	#0d0200	black	#0d0200	black	8-bit ignore
+DEF-FD25	#0d0205	black	#0d0205	black	8-bit ignore
+DEF-FD2A	#0d020a	black	#0d020a	black	8-bit ignore
+DEF-FD2F	#0d020f	black	#0d020f	black	8-bit ignore
+DEF-FD40	#0d0400	black	#0d0400	black	8-bit ignore
+DEF-FD45	#0d0405	black	#0d0405	black	8-bit ignore
+DEF-FD4A	#0d040a	black	#0d040a	black	8-bit ignore
+DEF-FD4F	#0d040f	black	#0d040f	black	8-bit ignore
+DEF-FD60	#0d0600	black	#0d0600	black	8-bit ignore
+DEF-FD65	#0d0605	black	#0d0605	black	8-bit ignore
+DEF-FD6A	#0d060a	black	#0d060a	black	8-bit ignore
+DEF-FD6F	#0d060f	black	#0d060f	black	8-bit ignore
+DEF-FD90	#0d0900	black	#0d0900	black	8-bit ignore
+DEF-FD95	#0d0905	black	#0d0905	black	8-bit ignore
+DEF-FD9A	#0d090a	black	#0d090a	black	8-bit ignore
+DEF-FD9F	#0d090f	black	#0d090f	black	8-bit ignore
+DEF-FDB0	#0d0b00	black	#0d0b00	black	8-bit ignore
+DEF-FDB5	#0d0b05	black	#0d0b05	black	8-bit ignore
+DEF-FDBA	#0d0b0a	black	#0d0b0a	black	8-bit ignore
+DEF-FDBF	#0d0b0f	black	#0d0b0f	black	8-bit ignore
+DEF-FDD0	#0d0d00	black	#0d0d00	black	8-bit ignore
+DEF-FDD5	#0d0d05	black	#0d0d05	black	8-bit ignore
+DEF-FDDA	#0d0d0a	black	#0d0d0a	black	8-bit ignore
+DEF-FDDF	#0d0d0f	black	#0d0d0f	black	8-bit ignore
+DEF-FDF0	#0d0f00	black	#0d0f00	black	8-bit ignore
+DEF-FDF5	#0d0f05	black	#0d0f05	black	8-bit ignore
+DEF-FDFA	#0d0f0a	black	#0d0f0a	black	8-bit ignore
+DEF-FDFF	#0d0f0f	black	#0d0f0f	black	8-bit ignore
+DEF-FF00	#0f0000	black	#0f0000	black	8-bit ignore
+DEF-FF05	#0f0005	black	#0f0005	black	8-bit ignore
+DEF-FF0A	#0f000a	black	#0f000a	black	8-bit ignore
+DEF-FF0F	#0f000f	black	#0f000f	black	8-bit ignore
+DEF-FF20	#0f0200	black	#0f0200	black	8-bit ignore
+DEF-FF25	#0f0205	black	#0f0205	black	8-bit ignore
+DEF-FF2A	#0f020a	black	#0f020a	black	8-bit ignore
+DEF-FF2F	#0f020f	black	#0f020f	black	8-bit ignore
+DEF-FF40	#0f0400	black	#0f0400	black	8-bit ignore
+DEF-FF45	#0f0405	black	#0f0405	black	8-bit ignore
+DEF-FF4A	#0f040a	black	#0f040a	black	8-bit ignore
+DEF-FF4F	#0f040f	black	#0f040f	black	8-bit ignore
+DEF-FF60	#0f0600	black	#0f0600	black	8-bit ignore
+DEF-FF65	#0f0605	black	#0f0605	black	8-bit ignore
+DEF-FF6A	#0f060a	black	#0f060a	black	8-bit ignore
+DEF-FF6F	#0f060f	black	#0f060f	black	8-bit ignore
+DEF-FF90	#0f0900	black	#0f0900	black	8-bit ignore
+DEF-FF95	#0f0905	black	#0f0905	black	8-bit ignore
+DEF-FF9A	#0f090a	black	#0f090a	black	8-bit ignore
+DEF-FF9F	#0f090f	black	#0f090f	black	8-bit ignore
+DEF-FFB0	#0f0b00	black	#0f0b00	black	8-bit ignore
+DEF-FFB5	#0f0b05	black	#0f0b05	black	8-bit ignore
+DEF-FFBA	#0f0b0a	black	#0f0b0a	black	8-bit ignore
+DEF-FFBF	#0f0b0f	black	#0f0b0f	black	8-bit ignore
+DEF-FFD0	#0f0d00	black	#0f0d00	black	8-bit ignore
+DEF-FFD5	#0f0d05	black	#0f0d05	black	8-bit ignore
+DEF-FFDA	#0f0d0a	black	#0f0d0a	black	8-bit ignore
+DEF-FFDF	#0f0d0f	black	#0f0d0f	black	8-bit ignore
+DEF-FFF0	#0f0f00	black	#0f0f00	black	8-bit ignore
+DEF-FFF5	#0f0f05	black	#0f0f05	black	8-bit ignore
+DEF-FFFA	#0f0f0a	black	#0f0f0a	black	8-bit ignore
+DEF-FFFF	#0f0f0f	black	#0f0f0f	black	8-bit ignore
+# scheme		fg	bg+ptrbg ptr 	cursor	category
+DEF-B000	black	black	black	#fd02ff	8-bit-bg ignore
+DEF-B005	black	#000005	black	#fd02ff	8-bit-bg ignore
+DEF-B00A	black	#00000a	black	black	8-bit-bg ignore
+DEF-B00F	black	#00000f	black	black	8-bit-bg ignore
+DEF-B020	black	#000200	black	#fd02ff	8-bit-bg ignore
+DEF-B025	black	#000205	black	#fd02ff	8-bit-bg ignore
+DEF-B02A	black	#00020a	black	black	8-bit-bg ignore
+DEF-B02F	black	#00020f	black	black	8-bit-bg ignore
+DEF-B040	black	#000400	black	#fd02ff	8-bit-bg ignore
+DEF-B045	black	#000405	black	#fd02ff	8-bit-bg ignore
+DEF-B04A	black	#00040a	black	black	8-bit-bg ignore
+DEF-B04F	black	#00040f	black	black	8-bit-bg ignore
+DEF-B060	black	#000600	black	#fd02ff	8-bit-bg ignore
+DEF-B065	black	#000605	black	#fd02ff	8-bit-bg ignore
+DEF-B06A	black	#00060a	black	black	8-bit-bg ignore
+DEF-B06F	black	#00060f	black	black	8-bit-bg ignore
+DEF-B090	black	#000900	black	black	8-bit-bg ignore
+DEF-B095	black	#000905	black	black	8-bit-bg ignore
+DEF-B09A	black	#00090a	black	black	8-bit-bg ignore
+DEF-B09F	black	#00090f	black	black	8-bit-bg ignore
+DEF-B0B0	black	#000b00	black	black	8-bit-bg ignore
+DEF-B0B5	black	#000b05	black	black	8-bit-bg ignore
+DEF-B0BA	black	#000b0a	black	black	8-bit-bg ignore
+DEF-B0BF	black	#000b0f	black	black	8-bit-bg ignore
+DEF-B0D0	black	#000d00	black	black	8-bit-bg ignore
+DEF-B0D5	black	#000d05	black	black	8-bit-bg ignore
+DEF-B0DA	black	#000d0a	black	black	8-bit-bg ignore
+DEF-B0DF	black	#000d0f	black	black	8-bit-bg ignore
+DEF-B0F0	black	#000f00	black	black	8-bit-bg ignore
+DEF-B0F5	black	#000f05	black	black	8-bit-bg ignore
+DEF-B0FA	black	#000f0a	black	black	8-bit-bg ignore
+DEF-B0FF	black	#000f0f	black	black	8-bit-bg ignore
+DEF-B200	black	#020000	black	#fd02ff	8-bit-bg ignore
+DEF-B205	black	#020005	black	#fd02ff	8-bit-bg ignore
+DEF-B20A	black	#02000a	black	black	8-bit-bg ignore
+DEF-B20F	black	#02000f	black	black	8-bit-bg ignore
+DEF-B220	black	#020200	black	#fd02ff	8-bit-bg ignore
+DEF-B225	black	#020205	black	#fd02ff	8-bit-bg ignore
+DEF-B22A	black	#02020a	black	black	8-bit-bg ignore
+DEF-B22F	black	#02020f	black	black	8-bit-bg ignore
+DEF-B240	black	#020400	black	#fd02ff	8-bit-bg ignore
+DEF-B245	black	#020405	black	#fd02ff	8-bit-bg ignore
+DEF-B24A	black	#02040a	black	black	8-bit-bg ignore
+DEF-B24F	black	#02040f	black	black	8-bit-bg ignore
+DEF-B260	black	#020600	black	#fd02ff	8-bit-bg ignore
+DEF-B265	black	#020605	black	#fd02ff	8-bit-bg ignore
+DEF-B26A	black	#02060a	black	black	8-bit-bg ignore
+DEF-B26F	black	#02060f	black	black	8-bit-bg ignore
+DEF-B290	black	#020900	black	black	8-bit-bg ignore
+DEF-B295	black	#020905	black	black	8-bit-bg ignore
+DEF-B29A	black	#02090a	black	black	8-bit-bg ignore
+DEF-B29F	black	#02090f	black	black	8-bit-bg ignore
+DEF-B2B0	black	#020b00	black	black	8-bit-bg ignore
+DEF-B2B5	black	#020b05	black	black	8-bit-bg ignore
+DEF-B2BA	black	#020b0a	black	black	8-bit-bg ignore
+DEF-B2BF	black	#020b0f	black	black	8-bit-bg ignore
+DEF-B2D0	black	#020d00	black	black	8-bit-bg ignore
+DEF-B2D5	black	#020d05	black	black	8-bit-bg ignore
+DEF-B2DA	black	#020d0a	black	black	8-bit-bg ignore
+DEF-B2DF	black	#020d0f	black	black	8-bit-bg ignore
+DEF-B2F0	black	#020f00	black	black	8-bit-bg ignore
+DEF-B2F5	black	#020f05	black	black	8-bit-bg ignore
+DEF-B2FA	black	#020f0a	black	black	8-bit-bg ignore
+DEF-B2FF	black	#020f0f	black	black	8-bit-bg ignore
+DEF-B400	black	#040000	black	#fd02ff	8-bit-bg ignore
+DEF-B405	black	#040005	black	#fd02ff	8-bit-bg ignore
+DEF-B40A	black	#04000a	black	black	8-bit-bg ignore
+DEF-B40F	black	#04000f	black	black	8-bit-bg ignore
+DEF-B420	black	#040200	black	#fd02ff	8-bit-bg ignore
+DEF-B425	black	#040205	black	#fd02ff	8-bit-bg ignore
+DEF-B42A	black	#04020a	black	black	8-bit-bg ignore
+DEF-B42F	black	#04020f	black	black	8-bit-bg ignore
+DEF-B440	black	#040400	black	#fd02ff	8-bit-bg ignore
+DEF-B445	black	#040405	black	#fd02ff	8-bit-bg ignore
+DEF-B44A	black	#04040a	black	black	8-bit-bg ignore
+DEF-B44F	black	#04040f	black	black	8-bit-bg ignore
+DEF-B460	black	#040600	black	#fd02ff	8-bit-bg ignore
+DEF-B465	black	#040605	black	#fd02ff	8-bit-bg ignore
+DEF-B46A	black	#04060a	black	black	8-bit-bg ignore
+DEF-B46F	black	#04060f	black	black	8-bit-bg ignore
+DEF-B490	black	#040900	black	black	8-bit-bg ignore
+DEF-B495	black	#040905	black	black	8-bit-bg ignore
+DEF-B49A	black	#04090a	black	black	8-bit-bg ignore
+DEF-B49F	black	#04090f	black	black	8-bit-bg ignore
+DEF-B4B0	black	#040b00	black	black	8-bit-bg ignore
+DEF-B4B5	black	#040b05	black	black	8-bit-bg ignore
+DEF-B4BA	black	#040b0a	black	black	8-bit-bg ignore
+DEF-B4BF	black	#040b0f	black	black	8-bit-bg ignore
+DEF-B4D0	black	#040d00	black	black	8-bit-bg ignore
+DEF-B4D5	black	#040d05	black	black	8-bit-bg ignore
+DEF-B4DA	black	#040d0a	black	black	8-bit-bg ignore
+DEF-B4DF	black	#040d0f	black	black	8-bit-bg ignore
+DEF-B4F0	black	#040f00	black	black	8-bit-bg ignore
+DEF-B4F5	black	#040f05	black	black	8-bit-bg ignore
+DEF-B4FA	black	#040f0a	black	black	8-bit-bg ignore
+DEF-B4FF	black	#040f0f	black	black	8-bit-bg ignore
+DEF-B600	black	#060000	black	#fd02ff	8-bit-bg ignore
+DEF-B605	black	#060005	black	#fd02ff	8-bit-bg ignore
+DEF-B60A	black	#06000a	black	black	8-bit-bg ignore
+DEF-B60F	black	#06000f	black	black	8-bit-bg ignore
+DEF-B620	black	#060200	black	#fd02ff	8-bit-bg ignore
+DEF-B625	black	#060205	black	#fd02ff	8-bit-bg ignore
+DEF-B62A	black	#06020a	black	black	8-bit-bg ignore
+DEF-B62F	black	#06020f	black	black	8-bit-bg ignore
+DEF-B640	black	#060400	black	#fd02ff	8-bit-bg ignore
+DEF-B645	black	#060405	black	#fd02ff	8-bit-bg ignore
+DEF-B64A	black	#06040a	black	black	8-bit-bg ignore
+DEF-B64F	black	#06040f	black	black	8-bit-bg ignore
+DEF-B660	black	#060600	black	#fd02ff	8-bit-bg ignore
+DEF-B665	black	#060605	black	#fd02ff	8-bit-bg ignore
+DEF-B66A	black	#06060a	black	black	8-bit-bg ignore
+DEF-B66F	black	#06060f	black	black	8-bit-bg ignore
+DEF-B690	black	#060900	black	black	8-bit-bg ignore
+DEF-B695	black	#060905	black	black	8-bit-bg ignore
+DEF-B69A	black	#06090a	black	black	8-bit-bg ignore
+DEF-B69F	black	#06090f	black	black	8-bit-bg ignore
+DEF-B6B0	black	#060b00	black	black	8-bit-bg ignore
+DEF-B6B5	black	#060b05	black	black	8-bit-bg ignore
+DEF-B6BA	black	#060b0a	black	black	8-bit-bg ignore
+DEF-B6BF	black	#060b0f	black	black	8-bit-bg ignore
+DEF-B6D0	black	#060d00	black	black	8-bit-bg ignore
+DEF-B6D5	black	#060d05	black	black	8-bit-bg ignore
+DEF-B6DA	black	#060d0a	black	black	8-bit-bg ignore
+DEF-B6DF	black	#060d0f	black	black	8-bit-bg ignore
+DEF-B6F0	black	#060f00	black	black	8-bit-bg ignore
+DEF-B6F5	black	#060f05	black	black	8-bit-bg ignore
+DEF-B6FA	black	#060f0a	black	black	8-bit-bg ignore
+DEF-B6FF	black	#060f0f	black	black	8-bit-bg ignore
+DEF-B900	black	#090000	black	black	8-bit-bg ignore
+DEF-B905	black	#090005	black	black	8-bit-bg ignore
+DEF-B90A	black	#09000a	black	black	8-bit-bg ignore
+DEF-B90F	black	#09000f	black	black	8-bit-bg ignore
+DEF-B920	black	#090200	black	black	8-bit-bg ignore
+DEF-B925	black	#090205	black	black	8-bit-bg ignore
+DEF-B92A	black	#09020a	black	black	8-bit-bg ignore
+DEF-B92F	black	#09020f	black	black	8-bit-bg ignore
+DEF-B940	black	#090400	black	black	8-bit-bg ignore
+DEF-B945	black	#090405	black	black	8-bit-bg ignore
+DEF-B94A	black	#09040a	black	black	8-bit-bg ignore
+DEF-B94F	black	#09040f	black	black	8-bit-bg ignore
+DEF-B960	black	#090600	black	black	8-bit-bg ignore
+DEF-B965	black	#090605	black	black	8-bit-bg ignore
+DEF-B96A	black	#09060a	black	black	8-bit-bg ignore
+DEF-B96F	black	#09060f	black	black	8-bit-bg ignore
+DEF-B990	black	#090900	black	black	8-bit-bg ignore
+DEF-B995	black	#090905	black	black	8-bit-bg ignore
+DEF-B99A	black	#09090a	black	black	8-bit-bg ignore
+DEF-B99F	black	#09090f	black	black	8-bit-bg ignore
+DEF-B9B0	black	#090b00	black	black	8-bit-bg ignore
+DEF-B9B5	black	#090b05	black	black	8-bit-bg ignore
+DEF-B9BA	black	#090b0a	black	black	8-bit-bg ignore
+DEF-B9BF	black	#090b0f	black	black	8-bit-bg ignore
+DEF-B9D0	black	#090d00	black	black	8-bit-bg ignore
+DEF-B9D5	black	#090d05	black	black	8-bit-bg ignore
+DEF-B9DA	black	#090d0a	black	black	8-bit-bg ignore
+DEF-B9DF	black	#090d0f	black	black	8-bit-bg ignore
+DEF-B9F0	black	#090f00	black	black	8-bit-bg ignore
+DEF-B9F5	black	#090f05	black	black	8-bit-bg ignore
+DEF-B9FA	black	#090f0a	black	black	8-bit-bg ignore
+DEF-B9FF	black	#090f0f	black	black	8-bit-bg ignore
+DEF-BB00	black	#0b0000	black	black	8-bit-bg ignore
+DEF-BB05	black	#0b0005	black	black	8-bit-bg ignore
+DEF-BB0A	black	#0b000a	black	black	8-bit-bg ignore
+DEF-BB0F	black	#0b000f	black	black	8-bit-bg ignore
+DEF-BB20	black	#0b0200	black	black	8-bit-bg ignore
+DEF-BB25	black	#0b0205	black	black	8-bit-bg ignore
+DEF-BB2A	black	#0b020a	black	black	8-bit-bg ignore
+DEF-BB2F	black	#0b020f	black	black	8-bit-bg ignore
+DEF-BB40	black	#0b0400	black	black	8-bit-bg ignore
+DEF-BB45	black	#0b0405	black	black	8-bit-bg ignore
+DEF-BB4A	black	#0b040a	black	black	8-bit-bg ignore
+DEF-BB4F	black	#0b040f	black	black	8-bit-bg ignore
+DEF-BB60	black	#0b0600	black	black	8-bit-bg ignore
+DEF-BB65	black	#0b0605	black	black	8-bit-bg ignore
+DEF-BB6A	black	#0b060a	black	black	8-bit-bg ignore
+DEF-BB6F	black	#0b060f	black	black	8-bit-bg ignore
+DEF-BB90	black	#0b0900	black	black	8-bit-bg ignore
+DEF-BB95	black	#0b0905	black	black	8-bit-bg ignore
+DEF-BB9A	black	#0b090a	black	black	8-bit-bg ignore
+DEF-BB9F	black	#0b090f	black	black	8-bit-bg ignore
+DEF-BBB0	black	#0b0b00	black	black	8-bit-bg ignore
+DEF-BBB5	black	#0b0b05	black	black	8-bit-bg ignore
+DEF-BBBA	black	#0b0b0a	black	black	8-bit-bg ignore
+DEF-BBBF	black	#0b0b0f	black	black	8-bit-bg ignore
+DEF-BBD0	black	#0b0d00	black	black	8-bit-bg ignore
+DEF-BBD5	black	#0b0d05	black	black	8-bit-bg ignore
+DEF-BBDA	black	#0b0d0a	black	black	8-bit-bg ignore
+DEF-BBDF	black	#0b0d0f	black	black	8-bit-bg ignore
+DEF-BBF0	black	#0b0f00	black	black	8-bit-bg ignore
+DEF-BBF5	black	#0b0f05	black	black	8-bit-bg ignore
+DEF-BBFA	black	#0b0f0a	black	black	8-bit-bg ignore
+DEF-BBFF	black	#0b0f0f	black	black	8-bit-bg ignore
+DEF-BD00	black	#0d0000	black	black	8-bit-bg ignore
+DEF-BD05	black	#0d0005	black	black	8-bit-bg ignore
+DEF-BD0A	black	#0d000a	black	black	8-bit-bg ignore
+DEF-BD0F	black	#0d000f	black	black	8-bit-bg ignore
+DEF-BD20	black	#0d0200	black	black	8-bit-bg ignore
+DEF-BD25	black	#0d0205	black	black	8-bit-bg ignore
+DEF-BD2A	black	#0d020a	black	black	8-bit-bg ignore
+DEF-BD2F	black	#0d020f	black	black	8-bit-bg ignore
+DEF-BD40	black	#0d0400	black	black	8-bit-bg ignore
+DEF-BD45	black	#0d0405	black	black	8-bit-bg ignore
+DEF-BD4A	black	#0d040a	black	black	8-bit-bg ignore
+DEF-BD4F	black	#0d040f	black	black	8-bit-bg ignore
+DEF-BD60	black	#0d0600	black	black	8-bit-bg ignore
+DEF-BD65	black	#0d0605	black	black	8-bit-bg ignore
+DEF-BD6A	black	#0d060a	black	black	8-bit-bg ignore
+DEF-BD6F	black	#0d060f	black	black	8-bit-bg ignore
+DEF-BD90	black	#0d0900	black	black	8-bit-bg ignore
+DEF-BD95	black	#0d0905	black	black	8-bit-bg ignore
+DEF-BD9A	black	#0d090a	black	black	8-bit-bg ignore
+DEF-BD9F	black	#0d090f	black	black	8-bit-bg ignore
+DEF-BDB0	black	#0d0b00	black	black	8-bit-bg ignore
+DEF-BDB5	black	#0d0b05	black	black	8-bit-bg ignore
+DEF-BDBA	black	#0d0b0a	black	black	8-bit-bg ignore
+DEF-BDBF	black	#0d0b0f	black	black	8-bit-bg ignore
+DEF-BDD0	black	#0d0d00	black	black	8-bit-bg ignore
+DEF-BDD5	black	#0d0d05	black	black	8-bit-bg ignore
+DEF-BDDA	black	#0d0d0a	black	black	8-bit-bg ignore
+DEF-BDDF	black	#0d0d0f	black	black	8-bit-bg ignore
+DEF-BDF0	black	#0d0f00	black	black	8-bit-bg ignore
+DEF-BDF5	black	#0d0f05	black	black	8-bit-bg ignore
+DEF-BDFA	black	#0d0f0a	black	black	8-bit-bg ignore
+DEF-BDFF	black	#0d0f0f	black	black	8-bit-bg ignore
+DEF-BF00	black	#0f0000	black	black	8-bit-bg ignore
+DEF-BF05	black	#0f0005	black	black	8-bit-bg ignore
+DEF-BF0A	black	#0f000a	black	black	8-bit-bg ignore
+DEF-BF0F	black	#0f000f	black	black	8-bit-bg ignore
+DEF-BF20	black	#0f0200	black	black	8-bit-bg ignore
+DEF-BF25	black	#0f0205	black	black	8-bit-bg ignore
+DEF-BF2A	black	#0f020a	black	black	8-bit-bg ignore
+DEF-BF2F	black	#0f020f	black	black	8-bit-bg ignore
+DEF-BF40	black	#0f0400	black	black	8-bit-bg ignore
+DEF-BF45	black	#0f0405	black	black	8-bit-bg ignore
+DEF-BF4A	black	#0f040a	black	black	8-bit-bg ignore
+DEF-BF4F	black	#0f040f	black	black	8-bit-bg ignore
+DEF-BF60	black	#0f0600	black	black	8-bit-bg ignore
+DEF-BF65	black	#0f0605	black	black	8-bit-bg ignore
+DEF-BF6A	black	#0f060a	black	black	8-bit-bg ignore
+DEF-BF6F	black	#0f060f	black	black	8-bit-bg ignore
+DEF-BF90	black	#0f0900	black	black	8-bit-bg ignore
+DEF-BF95	black	#0f0905	black	black	8-bit-bg ignore
+DEF-BF9A	black	#0f090a	black	black	8-bit-bg ignore
+DEF-BF9F	black	#0f090f	black	black	8-bit-bg ignore
+DEF-BFB0	black	#0f0b00	black	black	8-bit-bg ignore
+DEF-BFB5	black	#0f0b05	black	black	8-bit-bg ignore
+DEF-BFBA	black	#0f0b0a	black	black	8-bit-bg ignore
+DEF-BFBF	black	#0f0b0f	black	black	8-bit-bg ignore
+DEF-BFD0	black	#0f0d00	black	black	8-bit-bg ignore
+DEF-BFD5	black	#0f0d05	black	black	8-bit-bg ignore
+DEF-BFDA	black	#0f0d0a	black	black	8-bit-bg ignore
+DEF-BFDF	black	#0f0d0f	black	black	8-bit-bg ignore
+DEF-BFF0	black	#0f0f00	black	black	8-bit-bg ignore
+DEF-BFF5	black	#0f0f05	black	black	8-bit-bg ignore
+DEF-BFFA	black	#0f0f0a	black	black	8-bit-bg ignore
+DEF-BFFF	black	#0f0f0f	black	black	8-bit-bg ignore

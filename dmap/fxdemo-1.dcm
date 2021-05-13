@@ -1,0 +1,27 @@
+# color=cmap-name -- uncomment to enable
+# commented or wrongly-configured colors will remain unchanged.
+black=laser
+red=ry
+green=by
+brown=by2
+blue=mutant
+purple=scannerx
+turq=terrain
+grey=roboflash
+coal=rpbp
+orange=evil-orange-glow
+lime=evil-green-glow
+gold=wrwp
+sky=rainbow-0
+magenta=grunt
+cyan=bgr
+white=atari
+# [white only shows up on the map
+# for all other "white" use "bold"]
+# bold: map bold text
+# cursor: map the cursor color
+# default: map default text
+bold=scannerx
+# default=
+# cursor=
+#######

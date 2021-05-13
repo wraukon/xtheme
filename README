@@ -1,0 +1,202 @@
+XTHEME SUITE RELEASE 3.0	-	13 November 2020
+
+VERSIONS
+	INSTALL.sh:VERSION="installer version 2.3 2020-10-05";
+	dcm.sh:VERSION="dcm version 1.6 2020-06-17";
+	palmap.pl:my($VERSION)	= "palmap version 2.1 2018-03-29";
+	xc.sh:VERSION="xc version 3.2 2020-06-12";
+	xp.pl:my($VERSION) = "xp version 2.2.1 2020-11-13";
+	xtc.sh:VERSION="xtc version 1.3 2015-07-14";
+	xtheme.sh:VERSION="xtheme version 3.1.1 2020-11-13";
+
+ABOUT XTHEME
+
+xtheme is a suite of programs for tricking out your terminal emulator, be it
+xterm, urxvt, rxvt, or mintty (cygwin).
+
+THE PROGRAMS
+
+xtc:	X Terminal Color Capability test
+
+	Prints out a few lines of text in an illustrative manner, showing
+	what the low preset 16 colours look like.  These will change as
+	you run any of the other programs.  If run with the '-a' option,
+	xtc will also show representations of the following terminal 
+	attributes as baked into your terminal emulator:
+
+	0 - normal	1 - bold
+	2 - dim		3 - italic
+	4 - underline	5 - blink
+	6 - unknown	7 - inverse
+	8 - hidden	9 - overstrike
+	21 - double underline	
+	
+xc:	X Color changer
+
+	xc takes an argument which maps to a set of colours to be applied.
+	It affects the default foreground, background, pointer, pointer
+	background, and cursor colours.
+
+	OPTIONS:
+	-l	list schemes
+	-f	use an alternate colour file
+	-r	random
+	-v	print what we are using
+
+	A set of color mappings can be found in lib/xtheme/xtcolors.
+
+xp:	X Palette changer
+
+	xp takes an argument which maps to a set of colours to apply to
+	the 'lower 16' colours of the emulator's palette, as well as the
+	colours represented by bold, underline, blink, reverse, and italics.
+	It tries to be smart and change them all simultaneously.
+
+	OPTIONS:
+	-l	list palette entries
+	-m	iterative (mintty) mode - change them one at a time
+		(required for mintty)
+
+
+	A set of colour palette mappings can be found in lib/xtheme/xpalette.
+
+	BUGS:
+	
+	There is no list function implemented at this time.
+
+	urxvt does not respond to the colour changes of the attributes.
+
+xtheme:	X Themer
+
+	xtheme takes an argument which maps to a color set and a palette,
+	and calls xc and xp accordingly.  This is the program you will
+	probably use most often in changing up your xterm.
+
+	OPTIONS:
+	-l	list available themes
+	-o	pass the -o flag to xp (for mintty)
+	-t N	theme a terminal at a different tty/pty
+		(may be used more than once).  The parameter N specified
+		will be sought at /dev/N, /dev/ptyN, /dev/pty/N, and
+		/dev/ttyN.
+
+
+	A set of X Terminal theme descriptions can be found in
+	lib/xtheme/xthemes.
+
+palmap:  Palette mapper
+
+	palmap takes a series of entry:colormap parameters on
+	the command line and manipulates each entry (a number) according
+	to a colormap (string) specification file to be found in
+	lib/xtheme/cmap.  Each file consists of lines of colours in
+	rrggbb format, one per line.  These are then looped ad infinitum
+	until the process is interrupted.
+
+	OPTIONS
+
+	-l	list available colormaps
+
+	COLOURMAP ENTRY CODES AND CORRESPONDENT PALETTE CELLS
+		COLOURS
+	0 - "black"		 8 - "dark grey"
+	1 - "red"		 9 - "bright red"
+	2 - "green"		10 - "bright green"
+	3 - "yellow"		11 - "bright yellow"
+	4 - "blue"		12 - "bright blue"
+	5 - "purple"		13 - "magenta"
+	6 - "turquoise"		14 - "cyan"
+	7 - "light grey"	15 - "white"
+		ATTRIBUTES
+	16 - "bold"		21 - "blink"
+	18 - "dim"		23 - "inverse"
+	19 - "italic"		24 - "hidden"
+	20 - "underline"	25 - "overstrike"
+		OTHER COLOUR CELLS
+	26 - "foreground"	27 - "cursor"
+	28 - "background"
+
+	A set of colour map files may be found in lib/cmap/*.cm
+
+dcm:	Dynamic Colour Mapper
+
+	dcm allows one to construct dynamic colour map
+	references in a slightly more manageable fashion.
+	The files consist of cell=map entries, one per line.
+	The quoted values listed above for palmap are converted
+	to their respective numeric codes.  A hash sign is
+	considered a comment.
+
+	dcm will take a parameter as a dynamic map file, and
+	then background the palmap process, keeping track of
+	it on a per-terminal basis.
+
+	OPTIONS
+
+	-d	Specify the delay between cell map changes.
+
+	-k	kill the currently running dcm and reset the
+		terminal map to a standard theme.
+
+	-l	list available mappings.
+
+	-r	kill and restart with the chosen mapping.
+
+	-R	kill and restart with the current mapping.
+
+	A set of sample colour map theme files may be found in
+	lib/dmap/*.dcm.
+	
+THE DATA FILES
+
+xtcolors:	 basic xterm schemes
+
+	foreground, background,	pointer, cursor.  
+	Used by the 'xc' program.
+
+	FORMAT:
+	schemename fgcolor bgcolor ptrcolor cursorcolor categories
+
+	Lines beginning with # are ignored.
+
+
+xpalette:	colour cell mappings not covered by xtcolors.
+
+	Used by the 'xp' program.
+
+	FORMAT:
+	palname black red green brown blue purple turquoise ltgrey
+		dkgrey orange lime gold ltblue magenta cyan white
+		bold underline blink reverse italic
+
+	Fields are blank separated.
+	Only the first line is required.
+	Lines beginning with # are ignored.
+	The next entry begins at the next line which does not
+	begin with whitespace or a #.
+
+
+xthemes:	maps a label to an xtcolor map and a palette map
+
+	used by the 'xtheme' program.
+
+	FORMAT:
+	themename	xc-label	xpalette-label
+
+	Lines beginning with # are ignored.
+
+
+cmap/*.cm:	Dynamic colourmap definition files
+
+	Used by the 'cmap' program.
+
+	Each file contains lines of rrggbb colour values.
+	The more lines, the richer the map.
+
+dmap/*.dcm:	Dynamic palette colour rotation files
+
+	Used by the 'dcm' program.
+
+	Each file contains lines of colorcell=colourmap which
+	dcm translates into a set of parameters to pass off
+	to the 'cmap' program.
