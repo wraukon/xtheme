@@ -1,3 +1,5 @@
+#%% fxdemo-1.dcm 4.0 2021-05-13 greywolf@starwolf.com %%
+#%% Demo Colormap 1 %%
 # color=cmap-name -- uncomment to enable
 # commented or wrongly-configured colors will remain unchanged.
 black=laser

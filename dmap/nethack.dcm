@@ -1,3 +1,5 @@
+#%% nethack.dcm 4.0 2021-05-13 greywolf@starwolf.com %%
+#%% A dynamic palette suitable for NetHack %%
 red=ry
 green=evil-green-glow
 blue=robobhs

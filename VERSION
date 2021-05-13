@@ -1,2 +1,4 @@
-VER="xtheme suite 4.0.18.3 2021-05-10 greywolf@starwolf.com";
+VER="xtheme suite version 3.0 2021-05-13 greywolf@starwolf.com";
 URL="https://www.starwolf.com/greywolf/prog/xtheme.tgz";
+# change this to something else when we must reinstall
+update_check() { :; }

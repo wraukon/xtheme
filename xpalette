@@ -1,11 +1,17 @@
-# Revision 3.0.3 [rev , compatible with xp 3.0] 2021-05-10-2350
-# color remap map.  Should be reparsed using OSC 4 $cx $spec, where
+# xpalette 4.0 2021-05-13 greywolf@starwolf.com
+############################################################################
+# XTerm Palette remaps.  Used by "xp".  Changes the colours of the 16
+# standard colour cells (the ANSI ESC [ 0|1;30..37m sequences).
+# DOES NOT MODIFY THE ORIGINAL TEXT COLOR ( ESC [ 0 m ) -- "xc" handles that.
+#
+# Should be reparsed using OSC 4 $cx $spec, where
 # cx = color index offset [0-15], and spec = rgb:rrrr/gggg/bbbb, #rrggbb, or
 # a color name.
+#
 # indexes 16-20 are bold(1) underline(2) blink(3) reverse(4) italic(5)
 #			1m	4m	  5m	     7m	       3m 
-# [indexes 16-20 do not work with urxvt]
-#
+# NOTE: indexes 16-20 do not work with urxvt.
+############################################################################
 #mapname	colors (whitespace separated)
 #
 # STANDARD (default) PALETTE

@@ -6,7 +6,7 @@ quit() { echo ; exit 1; }
 PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="installer version 2.4.1 2020-05-10";
+INSVER="installer 4.0 2021-05-13 greywolf@starwolf.com";
 . ./VERSION;
 DFL_DIR="/usr/local";
 
@@ -63,9 +63,11 @@ where="whither";
 while getopts :urayd: x; do {
     case $x in
     u)
-	update_only=1;
-	verb="update";
-	verbing="updating";
+	if update_check; then {
+	    update_only=1;
+	    verb="update";
+	    verbing="updating";
+	} fi;
 	;;
     r)
 	remove=1;
