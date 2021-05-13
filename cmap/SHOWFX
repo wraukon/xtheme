@@ -1,4 +1,5 @@
 #! /bin/sh -
+VERSION="showfx 4.0 2021-05-13 greywolf@starwolf.com";
 
 lev=1
 for fg in 0000ff 00ff00 ff0000 ff6600 ffcc00 ff00ff aa6600 000000 ccccaa ffffff

@@ -1,6 +1,9 @@
-# Revision: 4.0.2 2021-05-10-2318
+# xthemes 4.0 2021-05-13
+############################################################################
+# XTerminal Themes.  Used by xtheme, which really calls "xc" with the
+# second column, and "xp" with the third.
 #
-# theme		terminal	palette		tags
+# theme		xcolors		xpalette	tags
 # theme		@themealias
 # blackbg
 overdrive-g	tvi-overdrive	greencrt	black green tinted mono
