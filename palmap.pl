@@ -17,7 +17,7 @@ my($mod, $off);	# modifier string, offset
 my(@v);		# temporary array.
 my($intv);	# sleep interval
 my($outstr);	# output string
-my($VERSION)	= "palmap 4.0 2021-05-13 greywolf@starwolf.com";
+my($VERSION)	= 'palmap 4.0 2021-05-13 greywolf@starwolf.com';
 
 # Where to find colourmap files
 $CMAPS = $ENV{CMAP_DIR}? $ENV{CMAP_DIR}: "@LIBDIR@/cmap";
