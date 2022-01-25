@@ -21,7 +21,7 @@ my(@clist);
 
 my($CSI, $OSC) = ( "\e[", "\e]" );
 
-my($VERSION) = "xp 4.0 2021-05-13 greywolf@starwolf.com";
+my($VERSION) = 'xp 4.0.1 2022-01-25 greywolf@starwolf.com';
 
 sub osc {   #
     $outstr .= $_[0]? (${OSC} . "$_[0];") : "\a";

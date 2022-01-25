@@ -1,4 +1,4 @@
-# xthemes 4.0 2021-05-13
+# xthemes 4.1 2022-01-25
 ############################################################################
 # XTerminal Themes.  Used by xtheme, which really calls "xc" with the
 # second column, and "xp" with the third.
@@ -44,7 +44,7 @@ storm		grey4		sublight	dark grey color
 lightning	grey4l		sublight	dark grey color
 # medbg
 ssgi		sgi		dsol		med solar blue color
-sgi		sgi		std		med blue color
+sgi		sgi		sgi		med blue color
 midgard		grey8		subdark		med grey color
 autumn		icet		subdark		med grey color
 # lightbg

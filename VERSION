@@ -1,4 +1,4 @@
-VER="xtheme suite version 3.0 2021-05-13 greywolf@starwolf.com";
-URL="https://www.starwolf.com/greywolf/prog/xtheme.tgz";
+VER="xtheme suite version 3.1 2022-01-25 greywolf@starwolf.com";
+URL="https://www.github.com/wraukon/xtheme.tgz";
 # change this to something else when we must reinstall
 update_check() { :; }

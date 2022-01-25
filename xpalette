@@ -1,4 +1,4 @@
-# xpalette 4.0 2021-05-13 greywolf@starwolf.com
+# xpalette 4.1 2022-01-25 greywolf@starwolf.com
 ############################################################################
 # XTerm Palette remaps.  Used by "xp".  Changes the colours of the 16
 # standard colour cells (the ANSI ESC [ 0|1;30..37m sequences).
@@ -39,6 +39,10 @@ nethack-dark	#000000	#880000	#006600	#884400	#003388	#883388	#006688	#888888
 	#444444	#cc5500	#55aa00	#aa9933	#0000aa	#aa0066	#0088cc	#ffffff
 	#ffffff	#ffaa00	#aa00ff	#00ccff	#aaff00
 	#ffffff	#008800	#66ddff	#444455	#99ffaa
+# for "sgi" background
+sgi	#000000	#440000	#00cc00	#cc6600	#000044	#cc44ff	#0088ff	#cccccc
+	#666666	#ff8800	#88ff00	#ffcc00	#8888ff	#ff44cc	#44ccff	#ffffff
+	#ffffff	#ff0000	#ff00ff	#ff00aa	#00ff00
 # for "paper" background
 paper	#442200	#992222	#226622	#664400	#222266	#880088	#448888	#887766
 	#000000	#bb0000	#009900	#aa7700	#0000ff	#440077	#004444	#ffffff
