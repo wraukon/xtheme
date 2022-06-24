@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 4.0 2021-05-13 greywolf@starwolf.com";
+VERSION="xtheme 5.0 2022-06-23 greywolf@starwolf.com";
 
 THEMES="@LIBDIR@/xthemes";
 
@@ -96,17 +96,25 @@ while getopts :L:t:lomrd f; do {
 shift $((OPTIND - 1));
 
 theme=$1;
-# have to do this here because getthem cannot control
+# have to do this here because gettheme cannot control
 # subshell (pipe-shell) variables.
 {
     case ${theme} in
     # we might add -md|-mdark
-    *-ml|*-mlight|*-m)
-	ext=$(echo $theme | sed -re 's,.*(-[^-]*)$,\1,');
+    *.ml|*.mlight|*.m)
+	ext=$(echo $theme | sed -re 's,.*(\.[^.]*)$,\1,');
 	theme=$(echo $theme | sed "s,${ext},,");
 	dprintf 'converting theme %s to mono\n' "${theme}"
-	xp_mono=1 export xp_mono;
+	xp_monogrey=1;
 	;;
+    *.md|*.mdark)
+	echo ".md not yet implemented";
+	exit 1;;
+    *.g|*.gs|*.gr[ae]y|*.gr[ae]yscale)
+	ext=$(echo $theme | sed -re 's,.*(\.[^.]*)$,\1,');
+	theme=$(echo $theme | sed "s,${ext},,");
+	dprintf 'converting theme %s to greyscale\n' "${theme}"
+	xp_monogrey=3;
     esac;
 }
 
@@ -146,24 +154,31 @@ gettheme $theme |
 	exit 2;
     }
 
-    dprintf "theme=%s; xp_mono=%d\n" ${theme} ${xp_mono:=0};
+    dprintf "theme=%s; xp_monogrey=%d\n" ${theme} ${xp_monogrey:=0};
     xcstr=$(xc $xc);
 
-    if [ ${xp_mono} -ne 0 ]; then {
-	xtfg=$(echo ${xcstr} |
-	       tr '\033\007' @@ |
-	       sed -re 's,.*@]10;([^@]*)@.*,\1,');
-	mono="-c ${xtfg}";
-    } fi;
+    xtfg=$(echo ${xcstr} |
+	   tr '\033\007' @@ |
+	   sed -re 's,.*@]10;([^@]*)@.*,\1,');
 
-    dprintf "mono: \n" "${mono}";
+    case ${xp_monogrey} in
+    1)
+	mono="-c ${xtfg}";
+	;;
+    #2 is reserved for mono-dark
+    3)
+	grey="-g ${xtfg}";
+	;;
+    esac;
+
+    dprintf "monogrey: \n" "${monogrey}";
     dprintf "xcstr: %s\n" "${xcstr}" 2>&1 | cat -v;
     dprintf "xtfg: %s\n" "${xtfg}";
     dprintf "basic: %s\n" "${xc}";
     dprintf "palette: %s\n" "${xp}";
 
     printf "%s" ${xcstr};
-    xp ${oflag} ${mono} $xp;	# now that xp is much faster, do it last.
+    xp ${oflag} ${monogrey} $xp; # now that xp is much faster, do it last.
 } |
 if [ -z "${tlist}" ]; then {
     cat;
