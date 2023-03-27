@@ -3,6 +3,7 @@ XTHEME SUITE RELEASE 3.0	-	13 November 2020
 VERSIONS
 	INSTALL.sh:VERSION="installer version 2.3 2020-10-05";
 	dcm.sh:VERSION="dcm version 1.6 2020-06-17";
+	monogen.sh:VER="1.0 2023-03-27 14:08 PDT greywolf@starwolf.com";
 	palmap.pl:my($VERSION)	= "palmap version 2.1 2018-03-29";
 	xc.sh:VERSION="xc version 3.2 2020-06-12";
 	xp.pl:my($VERSION) = "xp version 2.2.1 2020-11-13";
@@ -83,6 +84,14 @@ xtheme:	X Themer
 
 	A set of X Terminal theme descriptions can be found in
 	lib/xtheme/xthemes.
+
+monogen: Monochrome palette generator
+
+	monogen takes a tag and a full-white value on the command line,
+	runs some predetermined value calculations to generate the
+	scale between black (000000) and the given full-white value.
+
+	Improvements are planned for this utility.
 
 palmap:  Palette mapper
 

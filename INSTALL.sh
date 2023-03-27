@@ -3,10 +3,10 @@
 
 quit() { echo ; exit 1; }
 
-PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh"
+PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh monogen.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="installer 4.0 2021-05-13 greywolf@starwolf.com";
+INSVER="installer 4.1 2023-03-27 greywolf@starwolf.com";
 . ./VERSION;
 DFL_DIR="/usr/local";
 
