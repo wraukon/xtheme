@@ -28,6 +28,8 @@ paper		#403000	#d0c0b0	#403000	#403000	tan,brown,darkfg,lightbg
 asr33		#201c08	#c0b080	#201c08	#201c08	lightbg,darkfg
 # Slightly bluer, like old binder paper
 wpaper		#404040	#c0c0d0	black	#a06060	lightbg,darkfg
+# Slightly less blue, like older binder paper
+wpaper2		#404040	#c0bcb8	black	#a06060	lightbg,darkfg
 #  Grey Backgrounds     
 redrain		#800000	#c0c0c0	black	white	grey,red,darkfg,lightbg
 humboldt	#006030	#c0c0c0	black	white	grey,green,darkfg,lightbg
