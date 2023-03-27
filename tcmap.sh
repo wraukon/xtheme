@@ -85,3 +85,4 @@ xterm_init() {
     cmap['br_magenta']=";%s";
     cmap['br_cyan']=";%s";
     cmap['br_white']=";%s";
+}

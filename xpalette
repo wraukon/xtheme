@@ -1,4 +1,4 @@
-# xpalette 4.1 2022-01-25 greywolf@starwolf.com
+# xpalette 4.1.1 2023-03-27 greywolf@starwolf.com
 ############################################################################
 # XTerm Palette remaps.  Used by "xp".  Changes the colours of the 16
 # standard colour cells (the ANSI ESC [ 0|1;30..37m sequences).
@@ -114,6 +114,9 @@ bwtv2	#000000	#4e556b	#8490b5	#646d89	#2e323f	#393e4e	#43495c	#8f9cc4
 bwtv-od	#101018	#47476b	#7878b5	#5b5b89	#2a2a3f	#34344e	#3d3d5c	#8282c4
 	#202030	#8c8cd3	#656598	#9696e1	#51517a	#6e6ea6	#a0a0f0	#aaaaff
 	#ddddff	#202030	#3d3d5c	#47476b	#9696e1
+bwtvw	#000000	#555250	#908b88	#6d6967	#32302f	#3e3b3a	#494645	#9c9693
+	#262424	#a8a29e	#797472	#b4aca9	#615d5b	#847f7c	#c0b8b4	#ccc4c0
+	#ccc4c0	#555250	#908b88	#6d6967	#32302f
 ## oldschool green
 greencrt	#102816	#286b35	#47bf5f	#338944	#173f1f	#1d4e27	#225c2e	#49c462
 	#123018	#39984c	#4fd369	#54e170	#2d7a3d	#3ea653	#5af078	#5fff7f

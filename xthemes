@@ -1,4 +1,4 @@
-# xthemes 4.1 2022-01-25
+# xthemes 4.1.2 2023-03-27 greywolf@starwolf.com
 ############################################################################
 # XTerminal Themes.  Used by xtheme, which really calls "xc" with the
 # second column, and "xp" with the third.
@@ -24,6 +24,7 @@ adm5		adm5		whitecrt	black white mono
 adm5b		adm5b		adm5-ns		black white mono
 bwtv		bwtv		bwtv		black white mono
 bwtv2		bwtv2		bwtv2		black white mono
+bwtvw		bwtvw		bwtvw		black white mono warm
 oldstd		std		oldstd		black color standard
 greyscale	greys		grey		black grey greyscale wonb
 grey		@greyscale
@@ -51,8 +52,10 @@ autumn		icet		subdark		med grey color
 power		power		nethack-dark	light tan color
 dragon		dragon		subdark		light tan color
 paper		paper		paper		light paper old color
-wpaper		wpaper		wpaper		light paper new color
-wpaper2		wpaper2		wpaper		slightly aged white paper
+wpaperc		wpaperc		wpaper		white paper new color
+wpaperw		wpaperw		wpaper		white paper old color
+wpaper		@wpaperw
+newpaper	@wpaperc
 asr33		asr33		asr33		light paper yellow color
 tty		@asr33
 sparc		sparc		nethack-dark	light tan color
