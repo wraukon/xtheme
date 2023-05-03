@@ -1,4 +1,4 @@
-# xpalette 4.1.2 2023-05-03 greywolf@starwolf.com
+# xpalette 4.1.3 2023-05-03 greywolf@starwolf.com
 ############################################################################
 # XTerm Palette remaps.  Used by "xp".  Changes the colours of the 16
 # standard colour cells (the ANSI ESC [ 0|1;30..37m sequences).
@@ -18,9 +18,6 @@
 #
 # STANDARD (default) PALETTE
 default	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
-	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
-	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
-def	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
 	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
 	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
 oldstd	#000000	#cd0000	#00cd00	#cdcd00	#0000ee	#cd00cd	#00cdcd	#e5e5e5

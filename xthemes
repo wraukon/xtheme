@@ -19,6 +19,7 @@ green		green		green		black green mono
 ibm		@green
 std		std		std		black color standard
 default		std		default		black color standard
+def		@default
 nethack		bwtv		nethack		black color app-specific
 adm5		adm5		whitecrt	black white mono
 adm5b		adm5b		adm5-ns		black white mono
