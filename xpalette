@@ -1,4 +1,4 @@
-# xpalette 4.1.1 2023-03-27 greywolf@starwolf.com
+# xpalette 4.1.2 2023-05-03 greywolf@starwolf.com
 ############################################################################
 # XTerm Palette remaps.  Used by "xp".  Changes the colours of the 16
 # standard colour cells (the ANSI ESC [ 0|1;30..37m sequences).
@@ -8,21 +8,26 @@
 # cx = color index offset [0-15], and spec = rgb:rrrr/gggg/bbbb, #rrggbb, or
 # a color name.
 #
-# indexes 16-20 are bold(1) underline(2) blink(3) reverse(4) italic(5)
+# indices 16-20 are bold(1) underline(2) blink(3) reverse(4) italic(5)
 #			1m	4m	  5m	     7m	       3m 
-# NOTE: indexes 16-20 do not work with urxvt.
+# NOTE: indices 16-20 do not work with urxvt.
+# NOTE: the palette remap is not guaranteed to work on a Mac Terminal or
+# a GNOME terminal.
 ############################################################################
 #mapname	colors (whitespace separated)
 #
 # STANDARD (default) PALETTE
+default	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
+	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
+	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
+def	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
+	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
+	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
 oldstd	#000000	#cd0000	#00cd00	#cdcd00	#0000ee	#cd00cd	#00cdcd	#e5e5e5
 	#7f7f7f	#ff0000	#00ff00	#ffff00	#5c5cff	#ff00ff	#00ffff	#ffffff
 	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
 std	#000000	#cc0000	#00cc00	#cc6600	#0000cc	#8800cc	#00cccc	#cccccc
 	#888888	#ff0000	#00ff00	#ffff00	#0000ff	#ff00ff	#00ffff	#ffffff
-	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
-default	#000000	#a00000	#00a000	#a04000	#1020a0	#600090	#006090	#909090
-	#404040	#ff6000	#80ff00	#ffc000	#3030ff	#ff0080	#66bbff	#ffffff
 	#ffa000	#00c0ff	#0000ff	#ffa000 #00ff00
 # standard extras template - cut 'n' paste and delete the comment
 #	#ffffff	#008800	#66ddff	#444455	#99ffaa
