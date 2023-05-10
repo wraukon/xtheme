@@ -1,8 +1,13 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.0 2022-06-23 greywolf@starwolf.com";
+VERSION="xtheme 5.1 greywolf@starwolf.com 2023-05-10 12:32 PDT";
 
 THEMES="@LIBDIR@/xthemes";
+MYCONFIG="${HOME}/.xtheme";
+
+extern() {  # this doesn't work as well as I'd like in sh.
+    true;   # so we'll just do this.
+}
 
 dprintf() {
     local fmt;
@@ -14,9 +19,53 @@ dprintf() {
     printf "${fmt}" ${1+"$@"} >&2;
 }
 
+list_themes () {
+    extern category;
+    local single multi pattern;
 
-gettheme() {
-    local theme=$1 ext;
+    while expr "$1" : '-.*'; do {
+	opts="$1";
+	expr $opts : '-.*p.*' && { shift; pattern="$1"; }
+	expr $opts : '-.*s.*' && { single=1; multi=0; }
+	expr $opts : '-.*C.*' && { multi=1; single=0; }
+	shift;
+    } done > /dev/null;
+
+    if [ ! -t 1 ] && [ $((multi)) -eq 0 ]; then {
+	single=1;
+    }
+    else {
+	multi=1;
+    } fi;
+
+    if [ -n "${category}" ]; then {
+	pattern=$(echo ${category} | tr , '|');
+    }
+    else {
+	pattern="^[0-9a-z][-_0-9a-z]*";
+    } fi;
+    # this section is the output formatter
+    # we have to grep | sort first to spit them
+    # out in order.
+    grep -Ee "${pattern}" ${THEMES:?GAH.} |
+    sort -u |
+    awk 'BEGIN { pos=0; pnl=0; }
+    {
+	if (pnl) {
+	    pnl=0; pos=0;
+	    printf("\n");
+	}
+	pos+=16;
+	printf "%-15s ", $1;
+	if (single || ((pos + 16) >= ncol)) { pnl=1;}
+    }
+    END {
+	if (pos) { printf "\n"; }
+    }' ncol=${ncol} single=$((single));
+}
+
+get_theme() {
+    local _theme=$1 ext;
     awk '{
 	ent=$1;
 	if ($2 ~ /^@/) {
@@ -25,7 +74,7 @@ gettheme() {
 	    if (pal[ref] == "") {
 		printf \
 	"ERROR: %s, line %d: %s refers to (as yet) undefined palette %s\n",
-		    FILENAME, FNR, theme, ref | "cat >&2";
+		    FILENAME, FNR, theme, ref |"cat >&2";
 		    exit 1;
 	    }
 	    else {
@@ -39,15 +88,43 @@ gettheme() {
 	}
     }
     END {
-	if (term[theme] == "") {
+	if (term[_theme] == "") {
 	    #printf "ERROR: cannot find theme %s\n", theme | "cat >&2";
 	    exit 1;
 	}
-	printf "%s %s\n", term[theme], pal[theme];
+	printf "%s %s\n", term[_theme], pal[_theme];
 	exit 0;
-    }' theme=${theme} ${THEMES} ||
+    }' _theme=${_theme} ${THEMES} ||
     exit 1;
 }
+
+get_random() {
+    local _nt _t _tbuf;
+
+    if [ ! -f ${MYCONFIG} ]; then {
+	cat <<- EOT
+	Creating list of themes for use with -r.  Feel free to edit
+	the file.  If you remove it, it will be regenerated with
+	a default list next time you run with -r.
+	EOT
+	{
+		echo '[themes]';
+		list_themes -s ;
+	} | tee ${MYCONFIG}>&2;
+    } fi >&2;
+
+    if [ ! -r ${MYCONFIG} ]; then {
+	echo "Cannot read ${MYCONFIG}";
+	return;
+    } fi >&2;
+
+    _tbuf="$(sed -n '/\[themes\]/,/^$/p' ${MYCONFIG} |
+	grep -Ev '\[themes\]|^$')";
+    _nt=$(echo "${_tbuf}" | wc -l);
+    : $((_t = (RANDOM % _nt) + 1));
+    echo "${_tbuf}" | sed -n "${_t}p";
+}
+
 #########################
 
 if [ $# -lt 1 ]; then {
@@ -55,13 +132,38 @@ if [ $# -lt 1 ]; then {
     exit 2;
 } fi;
 
-ncol=$(stty size | awk '{print $2}');
-term=$(tty);
+# XXX TODO:
+# - option to list categories, as well as
+#   theme/category pairs.
+# - option to print usage/help
 
-while getopts :L:t:lomrd f; do {
+while getopts :dlmorvC1L:t: f; do {
     case $f in
+    d)
+	diag=1;
+	;;
+    l)
+	dolist=1;
+	;;
+    o|m)
+    	oflag=-m;
+	;;
+    r)
+	pick_random=1;
+	;;
+    v)
+	echo "${VERSION}";
+	exit;;
+    C)
+	dolist=1;
+	multi=1;    # a la ls(1);
+	;;
+    1)
+	dolist=1;
+	single=1;   # a la ls(1);
+	;;
     L)
-	dolist=:;
+	dolist=1;
 	category=${OPTARG};
 	;;
     t)
@@ -78,25 +180,45 @@ while getopts :L:t:lomrd f; do {
 	    tlist+="/dev/tty${OPTARG} ";
 	} fi;
 	;;
-    l)
-	dolist=:;
-	;;
-    o|m)
-    	oflag=-m;
-	;;
-    r)
-	echo '[-r currently unimplemented; ignoring]';
-	;;
-    d)
-	diag=1;
-	;;
     esac;
 } done;
 
 shift $((OPTIND - 1));
 
-theme=$1;
-# have to do this here because gettheme cannot control
+if [ -t 1 ]; then {	# a la ls(1);
+    ncol=$(stty size | awk '{print $2}');
+} fi;
+
+if [ $((pick_random)) -gt 0 ]; then {
+    theme=$(get_random);
+}
+else {
+    theme=$1;
+} fi;
+
+if [ $((diag)) -gt 0 ]; then {
+    while read -p "(dbx) " a; do {
+	eval "$a";
+    } done;
+} fi;
+
+if [ $((dolist)) -gt 0 ]; then {
+    if [ $((single)) -gt 0 ]; then {
+	list_themes -s;
+    }
+    elif [ $((multi)) -gt 0 ]; then {
+	list_themes -C;
+    } fi;
+    exit;
+} fi;
+
+
+if [ ! "${theme}" ]; then {
+    echo "No theme found/requested.";
+    exit 1;
+} fi;
+
+# have to do this here because get_theme cannot control
 # subshell (pipe-shell) variables.
 {
     case ${theme} in
@@ -118,35 +240,7 @@ theme=$1;
     esac;
 }
 
-if ${dolist:=false}; then {
-    if [ -n "${category}" ]; then {
-	pat=$(echo ${category} | tr , '|');
-    }
-    else {
-	pat="^[0-9a-z][-_0-9a-z]*";
-    } fi;
-    # this section is the output formatter
-    # we have to grep | sort first to spit them
-    # out in order.
-    grep -Ee "${pat}" ${THEMES} |
-    sort -u |
-    awk 'BEGIN { pos=0; pnl=0; }
-    {
-	if (pnl) {
-	    pnl=0; pos=0;
-	    printf("\n");
-	}
-	pos+=16;
-	printf "%-15s ", $1;
-	if ((pos + 16) >= ncol) { pnl=1;}
-    }
-    END {
-	if (pos) { printf "\n"; }
-    }' ncol=${ncol}
-    exit 0;
-} fi;
-
-gettheme $theme |
+get_theme $theme |
 {
     read xc xp ||
     { 

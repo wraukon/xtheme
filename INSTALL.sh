@@ -6,7 +6,7 @@ quit() { echo ; exit 1; }
 PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh monogen.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="installer 4.1 2023-03-27 greywolf@starwolf.com";
+INSVER="4.2 greywolf@starwolf.com 2023-05-10 12:49 PDT";
 . ./VERSION;
 DFL_DIR="/usr/local";
 
@@ -60,14 +60,13 @@ verbing="${verb}ing";
 direction="to";
 where="whither";
 
-while getopts :urayd: x; do {
+while getopts :d:aruy x; do {
     case $x in
-    u)
-	if update_check; then {
-	    update_only=1;
-	    verb="update";
-	    verbing="updating";
-	} fi;
+    d)
+	place=$(eval echo ${OPTARG});
+	;;
+    a|y)
+	auto=1;	# do not ask any questions
 	;;
     r)
 	remove=1;
@@ -76,11 +75,12 @@ while getopts :urayd: x; do {
 	where="whence";
 	direction="from";
 	;;
-    a|y)
-	auto=1;	# do not ask any questions
-	;;
-    d)
-	place=$(eval echo ${OPTARG});
+    u)
+	if update_check; then {
+	    update_only=1;
+	    verb="update";
+	    verbing="updating";
+	} fi;
 	;;
     ?)
 	echo "Bad option; exiting.";
@@ -91,8 +91,8 @@ while getopts :urayd: x; do {
 
 shift $((OPTIND - 1));
 
-if [ $(( update_only + remove )) -gt 1 ]; then {
-    echo "Can't specify update and remove.";
+if [ $(( update_only & remove )) -ne 0 ]; then {
+    echo "Can't specify both update and remove.";
     exit 1;
 } fi;
 
@@ -193,20 +193,21 @@ if [ $((update_only)) -gt 0 ]; then {
 } fi;
 
 printf "** %s xtheme:\n" ${verbing};
-if [ $((update_only)) -eq 0 ]; then {
-    printf "## installing programs:\n";
-    for i in ${PROGS}; do {
-	p=$(expr $i : '\(.*\)\..*');
+printf "## %s programs:\n" ${verbing};
+
+for i in ${PROGS}; do {
+    p=$(expr $i : '\(.*\)\..*');
+    if [ $((update_only)) -eq 0 ]; then {
 	rm -vf ${bin}/$p;
-	sed -e "s|@BINDIR@|${bin}|" \
-	    -e  "s|@LIBDIR@|${lib}|" \
-	    -e  "s|@BASH@|! ${BASH}|" \
-	    -e  "s|@PERL@|! ${PERL}|" \
-	    $i > ${bin}/$p;
-	    chmod a+rx ${bin}/$p;
-	    echo "$p -> ${bin}/$p";
-    } done || xv=$(expr ${xv=0} + 1);
-} fi;
+    } fi;
+    sed -e "s|@BINDIR@|${bin}|" \
+	-e  "s|@LIBDIR@|${lib}|" \
+	-e  "s|@BASH@|! ${BASH}|" \
+	-e  "s|@PERL@|! ${PERL}|" \
+	$i > ${bin}/$p;
+	chmod a+rx ${bin}/$p;
+	echo "$p -> ${bin}/$p";
+} done || xv=$(expr ${xv=0} + 1);
 
 printf "## %s data files:\n" ${verbing};
 for i in ${DATAFILES}; do {

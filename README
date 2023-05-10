@@ -1,16 +1,13 @@
 XTHEME SUITE RELEASE 3.0	-	13 November 2020
 
 VERSIONS
-	INSTALL.sh:VERSION="installer version 2.3 2020-10-05";
-	dcm.sh:VERSION="dcm version 1.6 2020-06-17";
-	monogen.sh:VER="1.0 2023-03-27 14:08 PDT greywolf@starwolf.com";
-	palmap.pl:my($VERSION)	= "palmap version 2.1 2018-03-29";
-	xc.sh:VERSION="xc version 3.2 2020-06-12";
-	xp.pl:my($VERSION) = "xp version 2.2.1 2020-11-13";
-	xtc.sh:VERSION="xtc version 1.3 2015-07-14";
-	xtheme.sh:VERSION="xtheme version 3.1.1 2020-11-13";
-
-ABOUT XTHEME
+    dcm.sh:VERSION="dcm 4.0 2021-05-13 greywolf@starwolf.com";
+    fxdemo.sh:VERSION="fxdemo 4.0 2021-05-13 greywolf@starwolf.com";
+    palmap.pl:my($VERSION)	= 'palmap 4.0 2021-05-13 greywolf@starwolf.com';
+    xc.sh:VERSION="xc 4.0 2021-05-13 greywolf@starwolf.com";
+    xp.pl:my($VERSION) = 'xp 4.0.1 2022-01-25 greywolf@starwolf.com';
+    xtc.sh:VERSION="xtc 4.0 2021-05-13 greywolf@starwolf.com"
+    xtheme.sh:VERSION="xtheme 5.1 greywolf@starwolf.com 2023-05-10 12:32 PDT";
 
 xtheme is a suite of programs for tricking out your terminal emulator, be it
 xterm, urxvt, rxvt, or mintty (cygwin).
@@ -75,7 +72,15 @@ xtheme:	X Themer
 
 	OPTIONS:
 	-l	list available themes
-	-o	pass the -o flag to xp (for mintty)
+	-m	pass the -m flag to xp (for mintty)
+	-o	alias for -m, as the '-o' flag used to mean 'one-by-one'
+	-r	pick a random theme
+	-v	print version and exit
+	-C	column mode listing (implies -l); default if stdout
+		is a terminal (a la ls(1));
+	-1	single column listing (implies -l); default if stdout
+		is not a terminal (a la ls(1));
+	-L cat	list only themes belonging to category {cat} (implies -l)
 	-t N	theme a terminal at a different tty/pty
 		(may be used more than once).  The parameter N specified
 		will be sought at /dev/N, /dev/ptyN, /dev/pty/N, and

@@ -1,4 +1,4 @@
-VER="xtheme suite version 4.1.2 2023-03-27 greywolf@starwolf.com";
+VER="xtheme suite version 5.1 greywolf@starwolf.com 2023-05-10 12:47 PDT";
 URL="https://github.com/wraukon/xtheme";
 # change this to something else when we must reinstall
 update_check() { :; }
