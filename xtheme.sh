@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.1 greywolf@starwolf.com 2023-05-10 12:32 PDT";
+VERSION="xtheme 5.1.1 greywolf@starwolf.com 2023-05-11 09:57 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -102,7 +102,7 @@ get_random() {
     local _nt _t _tbuf;
 
     if [ ! -f ${MYCONFIG} ]; then {
-	cat <<- EOT
+	fmt -w 77 <<- EOT
 	Creating list of themes for use with -r.  Feel free to edit
 	the file.  If you remove it, it will be regenerated with
 	a default list next time you run with -r.
@@ -110,7 +110,7 @@ get_random() {
 	{
 		echo '[themes]';
 		list_themes -s ;
-	} | tee ${MYCONFIG}>&2;
+	} > ${MYCONFIG};
     } fi >&2;
 
     if [ ! -r ${MYCONFIG} ]; then {
