@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.1.1 greywolf@starwolf.com 2023-05-11 09:57 PDT";
+VERSION="xtheme 5.3 greywolf@starwolf.com 2023-05-12 12:38 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -21,25 +21,43 @@ dprintf() {
 
 list_themes () {
     extern category;
-    local single multi pattern;
+    local single multi showcat pattern opt OPTIND _;
 
-    while expr "$1" : '-.*'; do {
-	opts="$1";
-	expr $opts : '-.*p.*' && { shift; pattern="$1"; }
-	expr $opts : '-.*s.*' && { single=1; multi=0; }
-	expr $opts : '-.*C.*' && { multi=1; single=0; }
-	shift;
-    } done > /dev/null;
+    OPTIND=1;
 
-    if [ ! -t 1 ] && [ $((multi)) -eq 0 ]; then {
-	single=1;
-    }
-    else {
-	multi=1;
-    } fi;
+    while getopts :sCcp: opt; do {
+	case ${opt} in
+	c)
+	    : $((++showcat));
+	    ;;
+	p)
+	    pattern=${OPTARG};
+	    ;;
+	s)
+	    single=1; multi=0;
+	    ;;
+	C)
+	    multi=1; single=0;
+	    ;;
+	esac;
+    } done;
+
+    shift $((OPTIND-1));
+
+# we are doing this in main; don't do it again here!
+#    if [ ! -t 1 ] && [ $((multi)) -eq 0 ]; then {
+#	single=1;
+#    }
+#    else {
+#	multi=1;
+#    } fi;
+
+#    read -p "(list_themes) single=$single multi=$multi" _;
 
     if [ -n "${category}" ]; then {
-	pattern=$(echo ${category} | tr , '|');
+	pattern=$(echo ${category} |
+	    sed -e 's/\*/.*/g' -e 's/\?/./g' |
+	    tr , '|');
     }
     else {
 	pattern="^[0-9a-z][-_0-9a-z]*";
@@ -49,19 +67,34 @@ list_themes () {
     # out in order.
     grep -Ee "${pattern}" ${THEMES:?GAH.} |
     sort -u |
-    awk 'BEGIN { pos=0; pnl=0; }
+    awk -F'\t' 'BEGIN { pos=0; pnl=0; showcat=0; }
     {
 	if (pnl) {
 	    pnl=0; pos=0;
 	    printf("\n");
 	}
-	pos+=16;
-	printf "%-15s ", $1;
-	if (single || ((pos + 16) >= ncol)) { pnl=1;}
+	if (showcat) {
+	    printf("%-15s\t%s\n", $1, $NF);
+	}
+	else {
+		pos+=16;
+		printf("%-15s ", $1);
+		if ((multi && ((pos + 16) >= ncol)) || !multi) { pnl=1;}
+	}
     }
     END {
 	if (pos) { printf "\n"; }
-    }' ncol=${ncol} single=$((single));
+    }' ncol=${ncol} multi=$((multi)) showcat=$((showcat));
+}
+
+get_section() {
+    local sec;
+    sec=$1; shift;
+
+    if [ -r ${MYCONFIG} ]; then {
+	sed -Ene "/^\[$sec\]$/,/^$/p" ${MYCONFIG} |
+	    sed -Ee "/^(\[.*\]|)$/d"
+    } fi;
 }
 
 get_theme() {
@@ -127,11 +160,6 @@ get_random() {
 
 #########################
 
-if [ $# -lt 1 ]; then {
-    echo "usage: xtheme theme";
-    exit 2;
-} fi;
-
 # XXX TODO:
 # - option to list categories, as well as
 #   theme/category pairs.
@@ -180,21 +208,56 @@ while getopts :dlmorvC1L:t: f; do {
 	    tlist+="/dev/tty${OPTARG} ";
 	} fi;
 	;;
+    ?)
+	echo "Unknown option: $f";
+	exit 1;
+	;;
     esac;
 } done;
 
 shift $((OPTIND - 1));
 
-if [ -t 1 ]; then {	# a la ls(1);
-    ncol=$(stty size | awk '{print $2}');
+if [ $((dolist)) -gt 0 ]; then {
+    if [ -t 1 ]; then {	# a la ls(1);
+	ncol=$(stty size | awk '{print $2}');
+	: $((multi = !single));
+    }
+    else {
+	ncol=80;    # assume default
+    } fi;
+
+    : $((single = !multi));
+
+#    read -p "single=$single multi=$multi" _ < /dev/tty
+
+    if [ $((multi)) -gt 0 ]; then {
+	list_themes -C ${1+-p "$1"};
+    }
+    elif [ $((single)) -gt 0 ]; then {
+	list_themes -s ${1+-p "$1"};
+    } fi;
+    exit;
 } fi;
 
-if [ $((pick_random)) -gt 0 ]; then {
-    theme=$(get_random);
+if [ "$1" ]; then {
+    theme=$1;
 }
 else {
-    theme=$1;
+    theme=$(get_section default);
+    if [ "${theme}" = "random" ]; then {
+	: $((++pick_random));
+    } fi
+
+    if [ $((pick_random)) -gt 0 ]; then {
+	theme=$(get_random);
+    } fi;
 } fi;
+
+if [ ! "${theme}" ]; then {
+    echo "usage: xtheme theme";
+    exit 1;
+} fi;
+
 
 if [ $((diag)) -gt 0 ]; then {
     while read -p "(dbx) " a; do {
@@ -202,15 +265,6 @@ if [ $((diag)) -gt 0 ]; then {
     } done;
 } fi;
 
-if [ $((dolist)) -gt 0 ]; then {
-    if [ $((single)) -gt 0 ]; then {
-	list_themes -s;
-    }
-    elif [ $((multi)) -gt 0 ]; then {
-	list_themes -C;
-    } fi;
-    exit;
-} fi;
 
 
 if [ ! "${theme}" ]; then {
