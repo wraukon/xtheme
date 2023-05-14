@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.3 greywolf@starwolf.com 2023-05-12 12:38 PDT";
+VERSION="xtheme 5.3.1 greywolf@starwolf.com 2023-05-13 19:48 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -93,7 +93,7 @@ get_section() {
 
     if [ -r ${MYCONFIG} ]; then {
 	sed -Ene "/^\[$sec\]$/,/^$/p" ${MYCONFIG} |
-	    sed -Ee "/^(\[.*\]|)$/d"
+	    sed -Ee "/^\[.*\]$|^$/d"
     } fi;
 }
 
