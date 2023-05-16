@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.3.1 greywolf@starwolf.com 2023-05-13 19:48 PDT";
+VERSION="xtheme 5.4.3 greywolf@starwolf.com 2023-05-16 12:08 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -44,16 +44,6 @@ list_themes () {
 
     shift $((OPTIND-1));
 
-# we are doing this in main; don't do it again here!
-#    if [ ! -t 1 ] && [ $((multi)) -eq 0 ]; then {
-#	single=1;
-#    }
-#    else {
-#	multi=1;
-#    } fi;
-
-#    read -p "(list_themes) single=$single multi=$multi" _;
-
     if [ -n "${category}" ]; then {
 	pattern=$(echo ${category} |
 	    sed -e 's/\*/.*/g' -e 's/\?/./g' |
@@ -66,25 +56,26 @@ list_themes () {
     # we have to grep | sort first to spit them
     # out in order.
     grep -Ee "${pattern}" ${THEMES:?GAH.} |
-    sort -u |
-    awk -F'\t' 'BEGIN { pos=0; pnl=0; showcat=0; }
-    {
-	if (pnl) {
-	    pnl=0; pos=0;
-	    printf("\n");
+	sort -u |
+	awk -F'\t' 'BEGIN { pos=0; pnl=0; showcat=0; }
+	{
+	    if (pnl) {
+		pnl=0; pos=0;
+		printf("\n");
+	    }
+	    if (showcat) {
+		printf("%-15s\t%s\n", $1, $NF);
+	    }
+	    else {
+		    pos+=16;
+		    printf("%-15s ", $1);
+		    if ((multi && ((pos + 16) >= ncol)) || !multi) { pnl=1;}
+	    }
 	}
-	if (showcat) {
-	    printf("%-15s\t%s\n", $1, $NF);
-	}
-	else {
-		pos+=16;
-		printf("%-15s ", $1);
-		if ((multi && ((pos + 16) >= ncol)) || !multi) { pnl=1;}
-	}
-    }
-    END {
-	if (pos) { printf "\n"; }
-    }' ncol=${ncol} multi=$((multi)) showcat=$((showcat));
+	END {
+	    if (pos) { printf "\n"; }
+	}' ncol=${ncol} multi=$((multi)) showcat=$((showcat)) |
+	sed -E 's/ *$//';
 }
 
 get_section() {
@@ -132,7 +123,8 @@ get_theme() {
 }
 
 get_random() {
-    local _nt _t _tbuf;
+    local _nt _t _tbuf _v _theme;
+    _v=$(($1));
 
     if [ ! -f ${MYCONFIG} ]; then {
 	fmt -w 77 <<- EOT
@@ -155,7 +147,11 @@ get_random() {
 	grep -Ev '\[themes\]|^$')";
     _nt=$(echo "${_tbuf}" | wc -l);
     : $((_t = (RANDOM % _nt) + 1));
-    echo "${_tbuf}" | sed -n "${_t}p";
+    _theme=$(echo "${_tbuf}" | sed -n "${_t}p");
+    if [ "$((_v))" -gt 0 ]; then {
+	echo "[${_theme}]" >&2;
+    } fi;
+    echo "${_theme}";
 }
 
 #########################
@@ -165,7 +161,7 @@ get_random() {
 #   theme/category pairs.
 # - option to print usage/help
 
-while getopts :dlmorvC1L:t: f; do {
+while getopts :dlmorvCV1L:t: f; do {
     case $f in
     d)
 	diag=1;
@@ -180,11 +176,15 @@ while getopts :dlmorvC1L:t: f; do {
 	pick_random=1;
 	;;
     v)
-	echo "${VERSION}";
-	exit;;
+	verbose=1;
+	;;
     C)
 	dolist=1;
 	multi=1;    # a la ls(1);
+	;;
+    V)
+	echo "${VERSION}";
+	exit;
 	;;
     1)
 	dolist=1;
@@ -244,13 +244,14 @@ if [ "$1" ]; then {
 }
 else {
     theme=$(get_section default);
-    if [ "${theme}" = "random" ]; then {
-	: $((++pick_random));
-    } fi
+} fi;
 
-    if [ $((pick_random)) -gt 0 ]; then {
-	theme=$(get_random);
-    } fi;
+if [ "${theme}" = "RANDOM" ]; then {
+    : $((++pick_random));   # also affected by option "-r"
+} fi
+
+if [ $((pick_random)) -gt 0 ]; then {
+    theme=$(get_random $((verbose)) );
 } fi;
 
 if [ ! "${theme}" ]; then {
