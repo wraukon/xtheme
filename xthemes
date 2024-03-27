@@ -1,4 +1,4 @@
-# Revision: 4.0.2 2021-05-10-2318
+# Revision: 4.0.3 2024-03-27-1411
 #
 # theme		terminal	palette		tags
 # theme		@themealias
@@ -18,7 +18,7 @@ std		std		std		black color standard
 default		std		default		black color standard
 nethack		bwtv		nethack		black color app-specific
 adm5		adm5		whitecrt	black white mono
-adm5b		adm5b		adm5-ns		black white mono
+adm5b		adm5b		bwtv		black white mono
 bwtv		bwtv		bwtv		black white mono
 bwtv2		bwtv2		bwtv2		black white mono
 oldstd		std		oldstd		black color standard
