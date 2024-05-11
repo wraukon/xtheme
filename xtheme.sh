@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.4.3 greywolf@starwolf.com 2023-05-16 12:08 PDT";
+VERSION="xtheme 5.4.4 greywolf@starwolf.com 2024-05-10 21:51 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -161,7 +161,7 @@ get_random() {
 #   theme/category pairs.
 # - option to print usage/help
 
-while getopts :dlmorvCV1L:t: f; do {
+while getopts :dlmorvRCV1L:t: f; do {
     case $f in
     d)
 	diag=1;
@@ -181,6 +181,10 @@ while getopts :dlmorvCV1L:t: f; do {
     C)
 	dolist=1;
 	multi=1;    # a la ls(1);
+	;;
+    R)
+	rm -f ${MYCONFIG};
+	pick_random=1;
 	;;
     V)
 	echo "${VERSION}";
@@ -246,7 +250,7 @@ else {
     theme=$(get_section default);
 } fi;
 
-if [ "${theme}" = "RANDOM" ]; then {
+if [ "${theme,,}" = "random" ]; then {
     : $((++pick_random));   # also affected by option "-r"
 } fi
 
