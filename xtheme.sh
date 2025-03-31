@@ -1,6 +1,6 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.4.5 greywolf@starwolf.com 2025-03-31 11:45 PDT";
+VERSION="xtheme 5.4.6 greywolf@starwolf.com 2025-03-31 11:48 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -144,7 +144,7 @@ get_random() {
     } fi >&2;
 
     _tbuf="$(sed -n '/\[themes\]/,/^$/p' ${MYCONFIG} |
-	grep -Ev '(\[themes\]|^ *$'))";
+	grep -Ev '\[themes\]|^ *$'";
     _nt=$(echo "${_tbuf}" | wc -l);
     : $((_t = (RANDOM % _nt) + 1));
     _theme=$(echo "${_tbuf}" | sed -n "${_t}p");
