@@ -6,7 +6,7 @@ quit() { echo ; exit 1; }
 PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh monogen.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="4.2 greywolf@starwolf.com 2023-05-10 12:49 PDT";
+INSVER="4.3 greywolf@starwolf.com 2025-03-31 13:00 PDT";
 . ./VERSION;
 DFL_DIR="/usr/local";
 
@@ -126,7 +126,7 @@ If you press Ctrl+D (^D) at a prompt, the program will exit.
 
 -EOT-
 
-until [ ${install_ok=0} -eq 1 ]; do {
+until [ $((install_ok)) -eq 1 ]; do {
     if [ -n "${place}" ]; then {
 	printf "%s %s %s\n" ${verbing} ${direction} ${place};
     }
@@ -147,9 +147,13 @@ until [ ${install_ok=0} -eq 1 ]; do {
 	read -p "lib = [${place}/lib/xtheme] " lib || quit;
     } fi;
     mkdir -p ${bin:=${place}/bin} &&
+	[ -w ${place}/bin ] &&
+	[ -w ${place{/lib/xtheme ] &&
 	touch ${bin}/.$$foo &&    
 	rm -f ${bin}/.$$foo &&
 	mkdir -p ${lib:=${place}/lib/xtheme} &&
+	touch ${lib}/.$$foo &&
+	rm -f ${lib}/.$$foo &&
 	install_ok=1 ||
 	{
 	    echo "Having problems writing to ${bin} or ${lib}";
