@@ -6,7 +6,7 @@ quit() { echo ; exit 1; }
 PROGS="dcm.sh palmap.pl xc.sh xp.pl xtc.sh xtheme.sh fxdemo.sh monogen.sh"
 DATAFILES="xthemes xtcolors xpalette";
 DATADIRS="cmap dmap";
-INSVER="4.3 greywolf@starwolf.com 2025-03-31 13:00 PDT";
+INSVER="4.3.1 greywolf@starwolf.com 2025-03-31 13:06 PDT";
 . ./VERSION;
 DFL_DIR="/usr/local";
 
@@ -148,8 +148,8 @@ until [ $((install_ok)) -eq 1 ]; do {
     } fi;
     mkdir -p ${bin:=${place}/bin} &&
 	[ -w ${place}/bin ] &&
-	[ -w ${place{/lib/xtheme ] &&
-	touch ${bin}/.$$foo &&    
+	[ -w ${place}/lib/xtheme ] &&
+	touch ${bin}/.$$foo &&
 	rm -f ${bin}/.$$foo &&
 	mkdir -p ${lib:=${place}/lib/xtheme} &&
 	touch ${lib}/.$$foo &&
@@ -158,7 +158,7 @@ until [ $((install_ok)) -eq 1 ]; do {
 	{
 	    echo "Having problems writing to ${bin} or ${lib}";
             place=;
-	    if ((auto)); then {
+	    if [ $((auto)) -ne 0 ]; then {
 		echo "Automagic install requested; cannot continue.";
 		exit 1;
 	    } fi;

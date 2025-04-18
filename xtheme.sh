@@ -1,6 +1,27 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
-VERSION="xtheme 5.5 greywolf@starwolf.com 2025-03-31 12:47 PDT";
+#
+#@usage: $0 [-[dlmvCV1H]] [-L category] [-t ttylist] {-[rR]|theme}
+#@OPTIONS:
+#@	-H	print this message
+#@	-d	diagnostic mode
+#@	-l	list themes
+#@	-m	mintty mode - one palette entry at a time
+#@	-r	random theme (from all available)
+#@	-v	verbose mode
+#@	-C	multi-column theme list (default)
+#@	-R	re-initialise @MYCONFIG and produce random theme
+#@	-V	print version number
+#@	-1	single-column theme list
+#@	-L category
+#@		list all themes in a category
+#@	-t ttylist
+#@		redirect output to ttylist
+#@	theme	name of theme to use
+#@
+#@  Exactly one of -R, -r, theme must be present to win.
+####
+VERSION="xtheme 5.6 greywolf@starwolf.com 2025-04-18 09:14 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -8,6 +29,13 @@ MYCONFIG="${HOME}/.xtheme";
 extern() {  # this doesn't work as well as I'd like in sh.
     true;   # so we'll just do this.
 }
+
+usage() {
+    echo "${VERSION}";
+    sed -nE -e "s|\$0|$0|" "/^#@/s/^#@ *(.*)/\1/p" $0;
+    exit $(($1));
+}
+
 
 dprintf() {
     local fmt;
@@ -25,7 +53,7 @@ list_themes () {
 
     OPTIND=1;
 
-    while getopts :sCcp: opt; do {
+    while getopts :1Ccp: opt ${1+"$@"}; do {
 	case ${opt} in
 	c)
 	    : $((++showcat));
@@ -33,7 +61,7 @@ list_themes () {
 	p)
 	    pattern=${OPTARG};
 	    ;;
-	s)
+	1)
 	    single=1; multi=0;
 	    ;;
 	C)
@@ -166,7 +194,7 @@ get_random() {
 #   theme/category pairs.
 # - option to print usage/help
 
-while getopts :dlmorvRCV1L:t: f; do {
+while getopts :dlmorvCLRV:t: f; do {
     case $f in
     d)
 	diag=1;
@@ -174,7 +202,7 @@ while getopts :dlmorvRCV1L:t: f; do {
     l)
 	dolist=1;
 	;;
-    o|m)
+    m)
     	oflag=-m;
 	;;
     r)
@@ -186,6 +214,9 @@ while getopts :dlmorvRCV1L:t: f; do {
     C)
 	dolist=1;
 	multi=1;    # a la ls(1);
+	;;
+    H)
+	usage;
 	;;
     R)
 	rm -f ${MYCONFIG};
@@ -264,8 +295,7 @@ if [ $((pick_random)) -gt 0 ]; then {
 } fi;
 
 if [ ! "${theme}" ]; then {
-    echo "usage: xtheme theme";
-    exit 1;
+    usage 1;
 } fi;
 
 
@@ -274,8 +304,6 @@ if [ $((diag)) -gt 0 ]; then {
 	eval "$a";
     } done;
 } fi;
-
-
 
 if [ ! "${theme}" ]; then {
     echo "No theme found/requested.";
@@ -307,8 +335,9 @@ if [ ! "${theme}" ]; then {
 get_theme $theme |
 {
     read xc xp ||
-    { 
-	echo "no such xterm theme as $1." >&2;
+    {
+	echo "empty theme;" \
+	    "please use '-r' or set a [default] in your .xtheme file";
 	exit 2;
     }
 

@@ -1,4 +1,7 @@
-VER="xtheme suite version 5.1 greywolf@starwolf.com 2023-05-10 12:47 PDT";
+# ver: update THIS:
+_v="5.1.2 greywolf@starwolf.com 2025-04-18 11:39 PDT";
+# and not THIS:
+VER="xtheme suite version $_v";
 URL="https://github.com/wraukon/xtheme";
 # change this to something else when we must reinstall
 update_check() { :; }
