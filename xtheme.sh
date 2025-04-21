@@ -21,7 +21,7 @@
 #@
 #@  Exactly one of -R, -r, theme must be present to win.
 ####
-VERSION="xtheme 5.6 greywolf@starwolf.com 2025-04-18 09:14 PDT";
+VERSION="xtheme 5.7 greywolf@starwolf.com 2025-04-21 16:43 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -194,7 +194,7 @@ get_random() {
 #   theme/category pairs.
 # - option to print usage/help
 
-while getopts :dlmorvCLRV:t: f; do {
+while getopts :dlmrvCHRL:V:t: f; do {
     case $f in
     d)
 	diag=1;
