@@ -1,7 +1,7 @@
 #! /bin/sh -
 #### xtheme: wrapper to set a full on xterm colour theme (std + palette)
 #
-#@usage: $0 [-[dlmvCV1H]] [-L category] [-t ttylist] {-[rR]|theme}
+#@usage: @PROG [-[dlmvCV1H]] [-L category] [-t ttylist] {-[rR]|theme}
 #@OPTIONS:
 #@	-H	print this message
 #@	-d	diagnostic mode
@@ -21,7 +21,7 @@
 #@
 #@  Exactly one of -R, -r, theme must be present to win.
 ####
-VERSION="xtheme 5.7 greywolf@starwolf.com 2025-04-21 16:43 PDT";
+VERSION="xtheme 5.8 greywolf@starwolf.com 2025-04-21 16:47 PDT";
 
 THEMES="@LIBDIR@/xthemes";
 MYCONFIG="${HOME}/.xtheme";
@@ -32,7 +32,7 @@ extern() {  # this doesn't work as well as I'd like in sh.
 
 usage() {
     echo "${VERSION}";
-    sed -nE -e "s|\$0|$0|" "/^#@/s/^#@ *(.*)/\1/p" $0;
+    sed -nE -e "s|@PROG|$0|" -e "/^#@/s/^#@ *(.*)/\1/p" $0;
     exit $(($1));
 }
 
