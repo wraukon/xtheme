@@ -110,10 +110,21 @@ get_section() {
     local sec;
     sec=$1; shift;
 
+    : get_section $sec;
+
     if [ -r ${MYCONFIG} ]; then {
-	sed -Ene "/^\[$sec\]$/,/^$/p" ${MYCONFIG} |
-	    sed -Ee "/^\[.*\]$|^$/d"
+	{
+	    sed -Ene "/^\[$sec\]$/,/^$/p" ${MYCONFIG} |
+	    sed -Ee "/^\[.*\]$|^$/d" |
+	    grep .;
+	} ||
+	{
+	    sed -Ene "/^\[$sec\]$/,$p" ${MYCONFIG} |
+	    grep .;
+	}
+	return;
     } fi;
+    : "MYCONFIG (${MYCONFIG}) not readable";
 }
 
 get_theme() {
@@ -278,11 +289,13 @@ if [ $((dolist)) -gt 0 ]; then {
     } fi;
     exit;
 } fi;
+: "argv[1] == $1";
 
 if [ "$1" ]; then {
     theme=$1;
 }
 else {
+    : trying to get default section
     theme=$(get_section default);
 } fi;
 
