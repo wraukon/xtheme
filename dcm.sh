@@ -7,7 +7,7 @@
 TTY=$(tty| sed -e 's,/dev/,,' -e 's,/,_,g');
 PROG=$(basename $0);
 LOCK=${HOME}/.pid.dcolor.${TTY};
-VERSION="dcm 4.0 2021-05-13 greywolf@starwolf.com";
+VERSION="dcm 4.1 greywolf@starwolf.com 2025-10-20 19:34 PDT";
 MAPPATH="@LIBDIR@/dmap";
 
 search() {	# usage: search path item; path is colon-separated
@@ -69,7 +69,7 @@ do {
 	} fi;
 	xp reset;
 	{ [ "$2" ] && { xc $1; xp -o $2; }; } ||
-	{ [ "$1" ] && xtheme -o $1; }
+	{ [ "$1" ] && xtheme -m $1; }
 
 	rm -f ${LOCK};
 	exit;
